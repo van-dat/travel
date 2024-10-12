@@ -1,16 +1,28 @@
 "use client";
 
-import { ThemeProvider } from 'styled-components';
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ConfigProvider } from "antd";
+
 
 export function Providers({ children }: { children: React.ReactNode }) {
-    const theme = {
-    colors: {
-      primary: '#0070f3',
+  const theme = {
+    token: {
+      colorText: "white"
     },
+    components: {
+      Menu: {
+        colorItemBgHover: "#ddd",
+        colorItemBgSelected: "white",
+        colorItemTextSelected: "white",
+      },
+    },
+
   }
   return (
-    <ThemeProvider theme={theme}  >
-      {children}
-    </ThemeProvider>
+    <AntdRegistry >
+      <ConfigProvider theme={theme}  >
+        {children}
+      </ConfigProvider>
+    </AntdRegistry>
   );
 }

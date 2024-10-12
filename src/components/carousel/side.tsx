@@ -32,12 +32,12 @@ const Side = (props: Prop) => {
 
 
     }
-    useEffect(() => {
-        startSlides()
-        return () => {
-            clearInterval(slideInterval);
-        };
-    }, [numberSlide]);
+    // useEffect(() => {
+    //     startSlides()
+    //     return () => {
+    //         clearInterval(slideInterval);
+    //     };
+    // }, [numberSlide]);
 
 
 
@@ -96,16 +96,16 @@ const Side = (props: Prop) => {
                         <h3>{item.name}</h3>
                         <Rating rate={item?.rate} />
                         <div className='cursor-pointer'  >
-                            <img onMouseEnter={stopSlides} onMouseLeave={startSlides} className='object-cover w-[250px] h-[350px] rounded-[10px] shadow-img' src={item?.thumbnail} alt="image" />
+                            <img  className='object-cover w-[250px] h-[350px] rounded-[10px] shadow-img' src={item?.thumbnail} alt="image" />
                             
                         </div>
                     </div>
                 ))}
                 <div className = "flex gap-[5px] absolute bottom-0 left-[200px]">
                     {/* onMouseEnter={stopSlides} onMouseLeave={startSlides}  */}
-                    <Button onMouseEnter={stopSlides} onMouseLeave={startSlides} className='bg-btn border-0 text-white'
-                        onClick={previous} shape="circle" icon={<LeftOutlined />} />
-                    <Button onMouseEnter={stopSlides} onMouseLeave={startSlides} className='bg-btn border-0 text-white' onClick={next} shape="circle" icon={<RightOutlined />} />
+                    <Button  className='bg-btn border-0 '
+                        onClick={previous} shape="circle" icon={<LeftOutlined className='text-white' />} />
+                    <Button  className='bg-btn border-0 ' onClick={next} shape="circle" icon={<RightOutlined />} />
                 </div>
 
             </div>
