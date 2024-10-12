@@ -15,10 +15,10 @@ const config: Config = {
       },
       backgroundColor: {
         blur: "rgba(0, 0, 0, 0.3)",
-        btn: "rgba(255, 255, 255, 0.502)"
+        btn: "rgba(255, 255, 255, 0.502) !important"
       },
       borderColor :{
-        left:"rgba(255, 255, 255, 0.7)"
+        left:"rgba(255, 255, 255, 0.7) " 
       },
       transitionDuration: {
         '250': '250ms',
