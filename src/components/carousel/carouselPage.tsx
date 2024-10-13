@@ -2,6 +2,7 @@
 import { useCallback, useEffect } from 'react'
 import { Button } from 'antd'
 import Side from './side'
+import {ArrowRightOutlined} from  '@ant-design/icons'
 import { animated, useSpring } from '@react-spring/web'
 import TimeLine from '../timeLine/timeLine'
 
@@ -52,9 +53,9 @@ const CarouselPage = (props: Props) => {
                                 <h3>{data[numberSlide]?.description}</h3>
                             </animated.div>
 
-                            <div>
-                                <Button className="explore-btn" type="primary">
-                                    Explore
+                            <div className='mt-7'>
+                                <Button icon={<ArrowRightOutlined />} className="py-5" type="primary">
+                                    Booking Now
                                 </Button>
                             </div>
                         </div>
