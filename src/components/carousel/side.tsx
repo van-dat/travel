@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Rating from '../Rating';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
@@ -77,14 +76,13 @@ const Side = (props: Prop) => {
 
     }
 
-    console.log("first")
 
     return (
         <>
             <div className='w-[55%] flex relative justify-center items-center'>
 
                 {dataSlides.map((item: any) => (
-                    <div 
+                    <div
                         key={item.id}
                         style={{
                             zIndex: dataSlides.length - item.order, opacity: item.order === 0 ? 0 : 1, left: `${(item.order - 1) * (100 / 3)}%`
@@ -96,16 +94,15 @@ const Side = (props: Prop) => {
                         <h3>{item.name}</h3>
                         <Rating rate={item?.rate} />
                         <div className='cursor-pointer'  >
-                            <img  className='object-cover w-[250px] h-[350px] rounded-[10px] shadow-img' src={item?.thumbnail} alt="image" />
-                            
+                            <img className='object-cover w-[250px] h-[350px] rounded-[10px] shadow-img ' src={item?.thumbnail} alt="image" />
                         </div>
                     </div>
                 ))}
-                <div className = "flex gap-[5px] absolute bottom-0 left-[200px]">
+                <div className="flex gap-[5px] absolute bottom-0 left-[200px]">
                     {/* onMouseEnter={stopSlides} onMouseLeave={startSlides}  */}
-                    <Button  className='bg-btn border-0 '
+                    <Button className='bg-btn border-0 '
                         onClick={previous} shape="circle" icon={<LeftOutlined className='text-white' />} />
-                    <Button  className='bg-btn border-0 ' onClick={next} shape="circle" icon={<RightOutlined />} />
+                    <Button className='bg-btn border-0 ' onClick={next} shape="circle" icon={<RightOutlined />} />
                 </div>
 
             </div>

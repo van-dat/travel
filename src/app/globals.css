@@ -18,7 +18,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer base {
+@layer utilities {
 
 
   h1 {
@@ -33,27 +33,38 @@ body {
   }
 
   .active {
-    transform: translateX(52%) scale(1.1);
+    transform: translateX(50%) scale(1.1);
   }
+
+  .active-icon svg path {
+    fill: #30C5F7 !important;
+    
+  }
+
+
+
 
   .custom-transition {
     transition: left ease-in 0.5s, opacity ease-in-out 0.5s;
   }
 
-  .custom-transform {
-    transform: translateX(50%) scale(1.1);
-  }
 
   .transition-bg {
     transition: background ease-in-out 0.35s;
   }
 
- 
+
 }
 
 .ant-menu-item-selected {
   background-color: transparent !important
 }
-/* .ant-btn-primary {
-  background-color: rgba(255, 255, 255, 0.502) !important ;
-} */
+
+.nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+}
+
+.nav:hover svg path {
+  fill: #30C5F7 !important;
+}
