@@ -1,13 +1,17 @@
 "use client";
 
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { ConfigProvider } from "antd";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 
 export function Providers({ children }: { children: React.ReactNode }) {
+
+
+
   const theme = {
     token: {
-      colorText: "white"
+      // colorText: "white"
     },
     components: {
       Menu: {
@@ -19,10 +23,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   }
   return (
-    <AntdRegistry >
-      <ConfigProvider theme={theme}  >
+    <Provider store={store}>
+      <AntdRegistry >
         {children}
-      </ConfigProvider>
-    </AntdRegistry>
+      </AntdRegistry>
+    </Provider>
   );
 }
