@@ -2,7 +2,7 @@
 import { useCallback, useEffect } from 'react'
 import { Button } from 'antd'
 import Side from './side'
-import {ArrowRightOutlined} from  '@ant-design/icons'
+import { ArrowRightOutlined } from '@ant-design/icons'
 import { animated, useSpring } from '@react-spring/web'
 import TimeLine from '../timeLine/timeLine'
 
@@ -39,7 +39,7 @@ const CarouselPage = (props: Props) => {
     }, []);
 
     return (
-        <div className='flex h-full py-4 pl-8 overflow-hidden'>
+        <div className='flex h-full py-4 pl-8 overflow-hidden flex-col'>
             <div className='h-4/5 relative flex border-l-2 border-solid border-left'>
                 <TimeLine total={data?.length} active={numberSlide + 1} />
                 {data && data.length > 0 &&
