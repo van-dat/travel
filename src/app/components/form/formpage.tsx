@@ -5,11 +5,9 @@ import { BiHotel } from 'react-icons/bi';
 import { CiCalendar, CiLocationOn } from 'react-icons/ci';
 import { FcPlanner } from 'react-icons/fc';
 import { MdOutlineNightlight } from 'react-icons/md';
-interface Props {
+type Props = {}
 
-}
-
-const Formpage: NextPage<Props> = ({ }) => {
+const Formpage: NextPage = (props:Props) => {
     const [form] = Form.useForm();
 
 

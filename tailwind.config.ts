@@ -18,7 +18,9 @@ const config: Config = {
         blur: "rgba(0, 0, 0, 0.3)",
         btn: "rgba(255, 255, 255, 0.502) !important",
         'btn-nav': "rgba(255, 255, 255, 0.2)",
+        container: "rgba(245, 247, 254, 1) !important",
         input: "rgba(245, 247, 254, 1) !important"
+
       },
       borderColor: {
         left: "rgba(255, 255, 255, 0.7) ",
