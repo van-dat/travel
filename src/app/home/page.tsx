@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+
 import { TRAVEL_PAGE_LOCATIONS } from "../../data/travel-data";
 import CarouselPage from "@/app/components/carousel/carouselPage";
 import Header from "@/app/components/header/header";
@@ -9,6 +10,7 @@ import SlideComponent from "@/app/components/slide/slide";
 import { Card } from "antd";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
+
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
