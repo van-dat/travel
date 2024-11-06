@@ -1,10 +1,20 @@
-@tailwind base;
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+  @tailwind base;
+}
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --layout-1 : 2fr 1fr 1fr 1fr;
+  --layout-2 : 1fr 2fr 1fr 1fr;
+  --layout-3 : 1fr 1fr 2fr 1fr;
+  --layout-4 : 1fr 1fr 1fr 2fr;
+  --layout-grid :  1fr 1fr 1fr 1fr;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +35,12 @@ body {
     color: white;
     font-size: 80px;
     text-transform: uppercase;
+  }
+  h2 {
+    font-size: 32px;
+    margin: 0;
+    line-height: 36px;
+
   }
 
   h3 {
@@ -52,8 +68,24 @@ body {
   .transition-bg {
     transition: background ease-in-out 0.35s;
   }
+  
+}
 
-
+.container-grid {
+  grid-template-columns: var(--layout-grid);
+  /* transition: all 400s; */
+  &:has(.recomment-1:hover) {
+    grid-template-columns: var(--layout-1);
+  }
+  &:has(.recomment-2:hover) {
+    grid-template-columns: var(--layout-2);
+  }
+  &:has(.recomment-3:hover) {
+    grid-template-columns: var(--layout-3);
+  }
+  &:has(.recomment-4:hover) {
+    grid-template-columns: var(--layout-4);
+  }
 }
 
 .ant-menu-item-selected {
@@ -68,4 +100,6 @@ body {
 .nav:hover svg path {
   fill: #30C5F7 !important;
 }
+
+
 
