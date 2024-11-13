@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        text: "rgba(255, 255, 255, 0.65)"
+        text: "rgba(255, 255, 255, 0.65)",
+        primary: "#f5f5f5"
 
       },
       backgroundColor: {
@@ -19,7 +20,8 @@ const config: Config = {
         btn: "rgba(255, 255, 255, 0.502) !important",
         'btn-nav': "rgba(255, 255, 255, 0.2)",
         container: "rgba(245, 247, 254, 1) !important",
-        input: "rgba(245, 247, 254, 1) !important"
+        input: "rgba(245, 247, 254, 1) !important",
+        boxImage: "rgba(255, 255, 255, 0.5)"
 
       },
       borderColor: {

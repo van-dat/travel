@@ -7,10 +7,12 @@ import Header from "@/app/components/header/header";
 import Formpage from "@/app/components/form/formpage";
 import TitleComponent from "@/app/components/title/title";
 import SlideComponent from "@/app/components/slide/slide";
-import { Card } from "antd";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
-
+import bbImage from "../../image/bb.webp";
+import { Button } from "antd";
+import { Bed } from "@/utils/icon";
+import FooterComponent from "../components/footer/footerComponent";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
@@ -117,7 +119,30 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="max-w-7xl mx-auto flex gap-8 flex-col min-h-[400px] mt-7"></section>
+      <section className="image-background  mx-auto flex gap-8 flex-col min-h-[500px] mt-7">
+        <div className="bg-boxImage flex justify-center items-center h-[500px] flex-col">
+          <h2 className="max-w-4xl text-5xl text-center leading-[60px]">
+            Ready to embark on your next adventure? Connect with TripTrap today
+            to start planning your dream trip
+          </h2>
+          <Button
+            className="flex justify-between"
+            style={{
+              marginTop: "40px",
+              background: "black",
+              paddingTop: "25px",
+              paddingBottom: "25px",
+              borderRadius: "26px",
+            }}
+          >
+            <div className="p-[6px] rounded-full border bg-white">
+              <Bed />
+            </div>
+            <h3 className="text-primary"> Booking Now</h3>
+          </Button>
+        </div>
+      </section>
+      <FooterComponent/>
     </main>
   );
 };

@@ -9,12 +9,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --layout-1 : 2fr 1fr 1fr 1fr;
-  --layout-2 : 1fr 2fr 1fr 1fr;
-  --layout-3 : 1fr 1fr 2fr 1fr;
-  --layout-4 : 1fr 1fr 1fr 2fr;
-  --layout-grid :  1fr 1fr 1fr 1fr;
-
+  --layout-1: 2fr 1fr 1fr 1fr;
+  --layout-2: 1fr 2fr 1fr 1fr;
+  --layout-3: 1fr 1fr 2fr 1fr;
+  --layout-4: 1fr 1fr 1fr 2fr;
+  --layout-grid: 1fr 1fr 1fr 1fr;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +28,9 @@ body {
 }
 
 @layer utilities {
-
+  footer {
+    background-color: #0a0a0a;
+  }
 
   h1 {
     color: white;
@@ -40,12 +41,17 @@ body {
     font-size: 32px;
     margin: 0;
     line-height: 36px;
-
   }
 
   h3 {
     font-size: 16px;
     margin: 0;
+  }
+  a {
+    color: #333 ;
+  }
+  a:hover {
+    color: #ddd;
   }
 
   .active {
@@ -53,22 +59,16 @@ body {
   }
 
   .active-icon svg path {
-    fill: #30C5F7 !important;
-    
+    fill: #30c5f7 !important;
   }
-
-
-
 
   .custom-transition {
     transition: left ease-in 0.5s, opacity ease-in-out 0.5s;
   }
 
-
   .transition-bg {
     transition: background ease-in-out 0.35s;
   }
-  
 }
 
 .container-grid {
@@ -89,7 +89,7 @@ body {
 }
 
 .ant-menu-item-selected {
-  background-color: transparent !important
+  background-color: transparent !important;
 }
 
 .nav:hover {
@@ -98,8 +98,11 @@ body {
 }
 
 .nav:hover svg path {
-  fill: #30C5F7 !important;
+  fill: #30c5f7 !important;
 }
 
-
-
+.image-background {
+  background-image: url("../image/bb.webp");
+  background-size: cover;
+  background-position: top;
+}

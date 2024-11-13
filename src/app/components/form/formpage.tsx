@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import { BiHotel } from 'react-icons/bi';
 import { CiCalendar, CiLocationOn } from 'react-icons/ci';
-import { FcPlanner } from 'react-icons/fc';
 import { MdOutlineNightlight } from 'react-icons/md';
 type Props = {}
 
@@ -38,7 +37,7 @@ const Formpage: NextPage = (props:Props) => {
         >
             <Input size='large' placeholder="" prefix={<MdOutlineNightlight className='rotate-[-30deg]' />} />
         </Form.Item>
-        <Form.Item label="GuestsandRooms">
+        <Form.Item label="Guestsand Rooms">
             <Select size='large'
 
                 placeholder="custom dropdown render"
