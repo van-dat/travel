@@ -3,12 +3,14 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-
-
+import localeData from "dayjs/plugin/localeData";
+import "dayjs/locale/vi";
+import dayjs from "dayjs";
+import { ToastContainer } from "react-toastify";
+dayjs.locale("vi");
+dayjs.extend(localeData);
+  
 export function Providers({ children }: { children: React.ReactNode }) {
-
-
-
   const theme = {
     token: {
       // colorText: "white"
@@ -20,13 +22,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
         colorItemTextSelected: "white",
       },
     },
-
-  }
+  };
   return (
     <Provider store={store}>
-      <AntdRegistry >
-        {children}
-      </AntdRegistry>
+      <AntdRegistry>{children}</AntdRegistry>
+      <ToastContainer />
     </Provider>
   );
 }
