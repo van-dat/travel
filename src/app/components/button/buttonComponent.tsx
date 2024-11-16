@@ -11,11 +11,20 @@ type Props = {
   types?: Types;
   variants?: Variants;
   background?: string;
+  radius?: string;
 };
 
 const ButtonComponent = (props: Props) => {
-  const { icon, styleCss, text, iconPosition, types, variants, background } =
-    props;
+  const {
+    icon,
+    styleCss,
+    text,
+    iconPosition,
+    types,
+    variants,
+    background,
+    radius,
+  } = props;
 
   return (
     <Button
@@ -24,7 +33,7 @@ const ButtonComponent = (props: Props) => {
       style={{
         paddingTop: "20px",
         paddingBottom: "20px",
-        borderRadius: "26px",
+        borderRadius: `${radius ? radius : "26px"}`,
         display: "flex",
         justifyContent: "space-between",
         background: `${background ? background : "white"}`,
@@ -32,7 +41,7 @@ const ButtonComponent = (props: Props) => {
       iconPosition={iconPosition ? iconPosition : "start"}
       icon={icon}
     >
-      {text}
+      {text ? text : null}
     </Button>
   );
 };

@@ -9,7 +9,6 @@ import TitleComponent from "@/app/components/title/title";
 import SlideComponent from "@/app/components/slide/slide";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import bbImage from "../../image/bb.webp";
 import { Button } from "antd";
 import { Bed } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
@@ -42,15 +41,15 @@ const HomePage = () => {
         </div>
       </section>
       <section className="">
-        <div className="  grid grid-cols-3 max-w-7xl mx-auto  py-[50px]">
+        <div className=" grid grid-cols-4 max-w-7xl mx-auto  py-[50px]">
           <div className="flex col-span-2  ">
-            <div className="grid-cols-3 grid  ">
+            <div className="grid-cols-4 grid  ">
               <div className="flex col-span-1 flex-col  ">
                 <h3 className="text-xl">Big</h3>
                 <h3 className="text-xl">Promo</h3>
               </div>
               <div className="col-span-2 py-8 ">
-                <div className="w-[80%] flex justify-center   flex-col gap-4">
+                <div className="w-full flex justify-center flex-col gap-4">
                   <h3 className="text-3xl ">Exclusive Limited Time Offer</h3>
                   <h4 className="text-lg ">
                     Don&apos;t miss out on this incredible opportunity! Book
@@ -62,8 +61,8 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-1  flex justify-center items-center  ">
-            <div className="w-[90%] border bg-white rounded-xl px-4 py-6">
+          <div className="col-span-2  flex justify-center items-center  ">
+            <div className="w-[90%] border bg-white rounded-xl px-4 py-6 ">
               <Formpage />
             </div>
           </div>

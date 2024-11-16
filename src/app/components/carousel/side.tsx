@@ -30,16 +30,13 @@ const Side = (props: Prop) => {
       next();
     }, 3000);
   };
-  // useEffect(() => {
-  //     startSlides()
-  //     return () => {
-  //         clearInterval(slideInterval);
-  //     };
-  // }, [numberSlide]);
 
-  const stopSlides = () => {
-    clearInterval(slideInterval);
-  };
+  // useEffect(() => {
+  //   startSlides();
+  //   return () => {
+  //     clearInterval(slideInterval);
+  //   };
+  // }, [numberSlide]);
 
   const previous = () => {
     setNumberSlide((prev: number) => {

@@ -1,8 +1,4 @@
-@layer tailwind-base, antd;
-
-@layer tailwind-base {
-  @tailwind base;
-}
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -48,7 +44,7 @@ body {
     margin: 0;
   }
   a {
-    color: #333 ;
+    color: #333;
   }
   a:hover {
     color: #ddd;
@@ -105,4 +101,14 @@ body {
   background-image: url("../image/bb.webp");
   background-size: cover;
   background-position: top;
+}
+
+.ant-select-item-option-active {
+  background-color: #f0f9ff !important;
+  color: #1890ff !important;
+}
+.ant-select-item-option-selected {
+  background-color: #bae7ff !important;
+  color: #096dd9 !important;
+  font-weight: bold;
 }
