@@ -45,7 +45,7 @@ const Header = (props: Props) => {
           </Button>
         </div>
       </div>
-      <nav className="flex justify-center flex-col items-center gap-2">
+      <nav className="hidden md:flex justify-center flex-col items-center gap-2 ">
         <div className="w-[85%] border-t border-nav"></div>
         <div className="w-[85%] flex flex-col ">
           <Navbar setActiveNav={setActiveNav} activeNav={activeNav} />

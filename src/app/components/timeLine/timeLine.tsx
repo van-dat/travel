@@ -1,5 +1,4 @@
 "use client";
-import styled from 'styled-components';
 
 type Props = {
   total: number;
@@ -15,13 +14,13 @@ const TimeLine = (props: Props) => {
     <>
       <div className='w-[50px]'>
         {totalArray.map((item: number) => (
-          <ItemLine
+          <div
             key={item}
-            active={active === item}
+            className={`${active === item ? " text-red-600 w-[30px] h-[30px] " : "text-white w-[10px] h-[10px]" } time-line`}
             style={{ top: (item) * (100 / (total + 1)) + '%' }}
           >
-            {item === active && active}
-          </ItemLine>
+            {item === active && active} 
+          </div>
         ))}
       </div>
     </>
@@ -32,29 +31,3 @@ export default TimeLine;
 
 
 
-type ItemLineProps = {
-  active: boolean;
-};
-
-const ItemLine = styled.div<ItemLineProps>`
-  color: ${(props) => (props.active ? 'red' : 'white')};
-  font-weight: bold;
-  left: 0;
-  width: ${(props) => (props.active ? '30px' : '10px')};
-  height: ${(props) => (props.active ? '30px' : '10px')};
-  font-size: 16px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all ease-in-out 0.35s;
-  transform: translate(-55%, -50%);
-
-  &:active {
-    width: 30px;
-    height: 30px;
-    color: red;
-  }
-`;
