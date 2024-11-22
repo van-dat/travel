@@ -39,7 +39,7 @@ const CarouselPage = (props: Props) => {
   }, []);
 
   return (
-    <div className="flex h-full py-4 pl-8 overflow-hidden flex-col">
+    <div className="hidden md:flex h-full py-4 pl-8 overflow-hidden flex-col">
       <div className="h-4/5 relative flex border-l-2 border-solid border-left">
         <TimeLine total={data?.length} active={numberSlide + 1} />
         {data && data.length > 0 && (

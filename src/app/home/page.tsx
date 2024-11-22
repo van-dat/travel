@@ -17,10 +17,6 @@ const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
   const [data, setData] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
-  const [dataArray, setdataArray] = useState(
-    Array.from({ length: 4 }, (_, idx) => idx + 1)
-  );
-
   return (
     <main className="bg-container ">
       <section
@@ -76,12 +72,14 @@ const HomePage = () => {
         />
         <SlideComponent dataSlide={[]} duration={0} />
       </section>
+      {/* recommend */}
+
       <section className="max-w-7xl mx-auto flex gap-8 flex-col min-h-[400px] mt-7 ">
         <TitleComponent
           title="Recommended For You"
           text="I hope you find these recommendations enjoyable !"
         />
-        <div className="grid h-[400px] transition-all items-end duration-300  container-grid gap-4  ">
+        <div className="grid  transition-all items-end duration-300 grid-flow-row  container-grid gap-4 flex-wrap  ">
           {Array.from({ length: 4 }, (_, idx) => (
             <div
               key={idx}
@@ -141,7 +139,7 @@ const HomePage = () => {
           </Button>
         </div>
       </section>
-      <FooterComponent/>
+      <FooterComponent />
     </main>
   );
 };

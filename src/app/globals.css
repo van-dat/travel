@@ -10,14 +10,16 @@
   --layout-3: 1fr 1fr 2fr 1fr;
   --layout-4: 1fr 1fr 1fr 2fr;
   --layout-grid: 1fr 1fr 1fr 1fr;
+  --layout-grid-3: 1fr 1fr 1fr ;
+  --layout-grid-2: 1fr 1fr ;
+
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  :root {  --layout-grid-3: 1fr 1fr 1fr ;}
+
 }
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -65,9 +67,32 @@ body {
   .transition-bg {
     transition: background ease-in-out 0.35s;
   }
+
+  .time-line {
+    font-size: 16px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.35s;
+    transform: translate(-55%, -50%);
+    font-weight: bold;
+    left: 0;
+    &:active {
+      width: 30px;
+      height: 30px;
+      color: red;
+    }
+  }
+
+ 
 }
 
 .container-grid {
+  grid-auto-rows: auto;
+  
   grid-template-columns: var(--layout-grid);
   /* transition: all 400s; */
   &:has(.recomment-1:hover) {
@@ -82,7 +107,17 @@ body {
   &:has(.recomment-4:hover) {
     grid-template-columns: var(--layout-4);
   }
+
+ 
+
 }
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: var(--layout-grid-2);
+  }
+}
+
+
 
 .ant-menu-item-selected {
   background-color: transparent !important;
