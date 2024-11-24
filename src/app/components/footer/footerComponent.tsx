@@ -5,7 +5,7 @@ interface Props {}
 const FooterComponent: NextPage<Props> = ({}) => {
   return (
     <footer>
-      <div className="flex gap-6 justify-between p-10 text-primary">
+      <div className=" hidden md:flex gap-6 justify-between p-10 text-primary ">
         <div className="flex flex-col gap-4 max-w-[200px]">
           <h3>Travel.</h3>
           <h5 className="text-sm ">
@@ -19,15 +19,6 @@ const FooterComponent: NextPage<Props> = ({}) => {
             <a href="">Service</a>
             <a href="">Products</a>
             <a href="">About</a>
-          </div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h3>Tools</h3>
-          <div className="flex flex-col gap-2 text-sm text-[#333] flex-1">
-            <a href="">Visual Sales</a>
-            <a href="">Trend Analysis</a>
-            <a href="">Customer Segmentation</a>
-            <a href="">Real - TimeDashboard</a>
           </div>
         </div>
         <div className="flex flex-col gap-4">

@@ -15,10 +15,10 @@ import FooterComponent from "../components/footer/footerComponent";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
-  const [data, setData] = useState<any>(TRAVEL_PAGE_LOCATIONS);
+  const [data] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
   return (
-    <main className="bg-container ">
+    <main className="bg-container w-full flex flex-col">
       <section
         className="transition-bg"
         style={{
@@ -27,7 +27,7 @@ const HomePage = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="w-full h-screen bg-blur">
+        <div className="w-full md:h-screen bg-blur">
           <Header />
           <CarouselPage
             setNumberSlide={setNumberSlide}
@@ -74,7 +74,7 @@ const HomePage = () => {
       </section>
       {/* recommend */}
 
-      <section className="max-w-7xl mx-auto flex gap-8 flex-col min-h-[400px] mt-7 ">
+      <section className="max-w-7xl hidden mx-auto md:flex gap-8 flex-col min-h-[400px] mt-7 ">
         <TitleComponent
           title="Recommended For You"
           text="I hope you find these recommendations enjoyable !"
