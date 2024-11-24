@@ -27,7 +27,7 @@ const Header = (props: Props) => {
           defaultSelectedKeys={["0"]}
           items={menuItems}
         />
-        <div className="flex justify-center items-center text-white w-[25%] gap-2">
+        <div className="hidden md:flex justify-center items-center text-white w-[25%] gap-2">
           <Button
             style={{
               borderRadius: "50px",
