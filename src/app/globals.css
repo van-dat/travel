@@ -139,3 +139,17 @@ body {
   color: #096dd9 !important;
   font-weight: bold;
 }
+
+/* slick Slide */
+
+.slick-dots li {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #096dd9 !important;
+}
+/* .slick-dots li button:hover:before, .slick-dots li button:focus:before {
+  opacity: 0.25 !important;
+} */

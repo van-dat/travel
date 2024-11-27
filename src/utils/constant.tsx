@@ -31,3 +31,5 @@ export const listButton: ButtonList[] = [
     icon: <MdOutlineMeetingRoom size={20} />,
   },
 ];
+
+export const  isMobile = () => /Mobi|Android/i.test(navigator.userAgent);

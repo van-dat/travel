@@ -12,15 +12,18 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { Bed } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
+import NavbarMobile from "../components/navbar/navbar-mobile";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
   const [data] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
+  const [activeNav, setActiveNav] = useState<number>(1);
+
   return (
-    <main className="bg-container w-full flex flex-col">
+    <main className="bg-container w-full flex-col flex overflow-hidden gap-4">
       <section
-        className="transition-bg"
+        className="transition-bg md:block hidden "
         style={{
           backgroundImage: `url(${data[numberSlide]?.background})`,
           backgroundPosition: "center",
@@ -36,13 +39,22 @@ const HomePage = () => {
           />
         </div>
       </section>
-      <section className="">
+
+      <header className="bg-blue-700 md:hidden">
+        <Header />
+      </header>
+
+      <nav className="md:hidden">
+        <NavbarMobile setActiveNav={setActiveNav} activeNav={activeNav} />
+      </nav>
+
+      <section>
         <div className=" grid grid-cols-4 max-w-7xl mx-auto  py-[50px]">
-          <div className="flex col-span-2  ">
+          <div className="md:flex col-span-2 hidden  ">
             <div className="grid-cols-4 grid  ">
               <div className="flex col-span-1 flex-col  ">
-                <h3 className="text-xl">Big</h3>
-                <h3 className="text-xl">Promo</h3>
+                <h3 className="text-2xl">Big</h3>
+                <h3 className="text-2xl">Promo</h3>
               </div>
               <div className="col-span-2 py-8 ">
                 <div className="w-full flex justify-center flex-col gap-4">
@@ -57,14 +69,14 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-2  flex justify-center items-center  ">
+          <div className="md:col-span-2 col-span-4  flex justify-center items-center  ">
             <div className="w-[90%] border bg-white rounded-xl px-4 py-6 ">
               <Formpage />
             </div>
           </div>
         </div>
       </section>
-      <section className=" max-w-7xl mx-auto flex gap-8 flex-col">
+      <section className="md:max-w-7xl mx-auto flex gap-8 flex-col p-2 md:p-0 ">
         <TitleComponent
           title="Best event for 2024 "
           text="Cultural festivals celebrate the diversity of 
@@ -116,7 +128,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="image-background  mx-auto flex gap-8 flex-col min-h-[500px] mt-7">
+      <section className="image-background w-full mx-auto flex gap-8 flex-col  mt-7">
         <div className="bg-boxImage flex justify-center items-center h-[500px] flex-col">
           <h2 className="max-w-4xl text-5xl text-center leading-[60px]">
             Ready to embark on your next adventure? Connect with TripTrap today

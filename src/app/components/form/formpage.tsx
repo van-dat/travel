@@ -11,6 +11,7 @@ import { UserSwitchOutlined } from "@ant-design/icons";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { listButton } from "@/utils/constant";
 import { Calendar } from "@/utils/icon";
+import { BsDot } from "react-icons/bs";
 
 type Props = {};
 
@@ -54,7 +55,7 @@ const Formpage: NextPage = (props: Props) => {
   const handleMinus = (key: keyof GuestAndRoom) => {
     setGuestAndRoome((prev: any) => ({
       ...prev,
-      [key]: Math.max(prev[key] - 1, 1)
+      [key]: Math.max(prev[key] - 1, 1),
     }));
   };
 
@@ -100,6 +101,7 @@ const Formpage: NextPage = (props: Props) => {
         style={{
           display: "inline-block",
           width: "calc(40% - 8px)",
+          marginLeft: 16,
         }}
       >
         <Select
@@ -113,18 +115,13 @@ const Formpage: NextPage = (props: Props) => {
           popupMatchSelectWidth={false}
           optionRender={(menu) => {
             return (
-              <div className="flex h-full gap-4   ">
-                <div className="flex h-full justify-center items-center ">
-                  <span className="bg-dot h-[6px] w-[6px] flex rounded-full"></span>
-                </div>
-                <div className="flex flex-col ">
-                  <h3 className="m-0 text-sm font-semibold ">{`${menu.data.value} đêm`}</h3>
-                  <span className="text-xs capitalize">
-                    {dayjs(choseDate)
-                      .add(+(menu?.data?.value || 1), "day")
-                      .format("dddd, D [thg] M YYYY")}
-                  </span>
-                </div>
+              <div className="flex flex-col ">
+                <h3 className="m-0 text-sm font-semibold ">{`${menu.data.value} đêm`}</h3>
+                <span className="text-xs capitalize">
+                  {dayjs(choseDate)
+                    .add(+(menu?.data?.value || 1), "day")
+                    .format("dddd, D [thg] M YYYY")}
+                </span>
               </div>
             );
           }}
@@ -153,11 +150,12 @@ const Formpage: NextPage = (props: Props) => {
                       </div>
                       <div className=" flex gap-2">
                         <Button
+                          onClick={() => handleMinus(item.key)}
                           variant="filled"
                           color="default"
-                          icon={<FiPlus />}
-                          onClick={() => handlePlus(item.key)}
+                          icon={<FiMinus />}
                         />
+
                         <Input
                           style={{
                             display: "inline-block",
@@ -171,10 +169,10 @@ const Formpage: NextPage = (props: Props) => {
                           value={guestAndRoome[item.key as keyof GuestAndRoom]}
                         />
                         <Button
-                          onClick={() => handleMinus(item.key)}
                           variant="filled"
                           color="default"
-                          icon={<FiMinus />}
+                          icon={<FiPlus />}
+                          onClick={() => handlePlus(item.key)}
                         />
                       </div>
                     </div>
