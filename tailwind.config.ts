@@ -21,7 +21,8 @@ const config: Config = {
         'btn-nav': "rgba(255, 255, 255, 0.2)",
         container: "rgba(245, 247, 254, 1) !important",
         input: "rgba(245, 247, 254, 1) !important",
-        boxImage: "rgba(255, 255, 255, 0.5)"
+        boxImage: "rgba(255, 255, 255, 0.5)",
+        header: "#219FE3"
 
       },
       borderColor: {

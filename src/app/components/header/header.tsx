@@ -17,7 +17,7 @@ const Header = (props: Props) => {
 
   return (
     <div className="bg-transparent flex justify-between  flex-col">
-      <div className="flex md:h-[60px] h-[40px] justify-between px-3">
+      <div className="flex h-[60px] justify-between px-3">
         {/* MENU MOBILE */}
         <div className="my-auto flex ">
           <BsList color="white" size={22} />

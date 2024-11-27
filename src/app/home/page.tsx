@@ -40,7 +40,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <header className="bg-blue-700 md:hidden">
+      <header className="bg-header md:hidden">
         <Header />
       </header>
 
