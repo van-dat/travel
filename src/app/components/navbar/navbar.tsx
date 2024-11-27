@@ -1,6 +1,7 @@
 import { navBar } from "@/utils/navbar";
 import { Menu } from "antd";
 import { NextPage } from "next";
+import Link from "next/link";
 
 type Props = {
   setActiveNav: any;
@@ -22,16 +23,19 @@ const Navbar = (props: Props) => {
               } select-none rounded-md flex justify-center gap-2 p-2 text-text cursor-pointer md:nav `}
               key={item.key}
             >
-              <div className={`${item.key === activeNav && "active-icon"} `}>
-                {item.icon}
-              </div>
-              <div
+              <Link
+                href={item.href}
                 className={`${
-                  activeNav === item.key && "text-white"
-                } text-sm  justify-center items-center md:flex hidden`}
+                  item.key === activeNav && "active-icon"
+                }  flex gap-2`}
               >
-                {item.label}
-              </div>
+                {item.icon}
+                <div
+                  className={`text-white text-sm  justify-center items-center md:flex hidden`}
+                >
+                  {item.label}
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
