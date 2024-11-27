@@ -12,11 +12,11 @@ const TitleComponent = (props: Props) => {
   const style = styleCss ? `${styleCss} text-3xl : ` : "text-3xl";
 
   return (
-    <div className="  grid grid-cols-3  ">
-      <div className="col-span-2">
+    <div className="md:grid md:grid-cols-3 flex flex-col grid-cols-none ">
+      <div className="md:col-span-2 md:block flex justify-center items-center">
         <h3 className={`${style}`}>{title}</h3>
       </div>
-      <div className="col-span-1 px-5 max-w-[350px] text-xs text-[#333]">
+      <div className="md:col-span-1 px-5 max-w-[350px] text-xs text-[#333] text-center ">
         <h5>{text}</h5>
       </div>
     </div>
