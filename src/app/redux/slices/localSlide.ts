@@ -5,14 +5,14 @@ interface CounterState {
 }
 
 const initialState: CounterState = {
-    actionNav: 0,
+    actionNav: 3,
 }
 
 export const localSlice = createSlice({
     name: 'localSlice',
     initialState,
     reducers: {
-        setAction: (state, action) => {
+        setActionNav: (state, action) => {
             state.actionNav = action.payload
         },
 
@@ -23,5 +23,5 @@ export const localSlice = createSlice({
 })
 
 const { reducer, actions } = localSlice
-export const { setAction } = actions;
+export const { setActionNav } = actions;
 export default reducer;

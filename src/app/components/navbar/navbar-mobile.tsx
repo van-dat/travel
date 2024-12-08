@@ -12,8 +12,6 @@ const NavbarMobile: NextPage<Props> = ({ setActiveNav, activeNav }) => {
   const settings = {
     dots: true,
     infinite: false,
-    // lazyLoad: "progressive",
-    // speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
   };
@@ -23,17 +21,19 @@ const NavbarMobile: NextPage<Props> = ({ setActiveNav, activeNav }) => {
       <Slider {...settings}>
         {navBarMobile.map((item: any) => (
           <div
-            className="select-none  flex px-[18px] text-text py-2 gap-1 flex-col "
+            className="select-none nav-moblie text-text py-2 "
             key={item.key}
           >
             <Link
               href={item.href}
-              className={` rounded-[14px] border shadow-sm flex justify-center text-xl py-3 mobile-icon sale-icon relative cursor-pointer`}
+              className={` rounded-[14px] min-w-[50px] min-h-[50px] border shadow-sm flex justify-center text-xl py-3 mobile-icon sale-icon relative cursor-pointer`}
               style={{ backgroundColor: item.color }}
             >
               {item.icon}
             </Link>
-            <div className="text-black text-[8px] text-center">{item.label}</div>
+            <div className="text-black text-[8px] text-center">
+              {item.label}
+            </div>
           </div>
         ))}
       </Slider>

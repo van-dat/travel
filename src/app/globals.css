@@ -22,9 +22,13 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 @layer utilities {
+  input {
+    font-size: 14px !important;
+  }
   footer {
     background-color: #0a0a0a;
   }
@@ -35,7 +39,7 @@ body {
     text-transform: uppercase;
   }
   h2 {
-    font-size: 32px;
+    font-size: clamp(24px, 8vw, 48px);
     margin: 0;
     line-height: 36px;
   }
@@ -113,6 +117,10 @@ body {
   .container-grid {
     grid-template-columns: var(--layout-grid-2);
   }
+  .form-date {
+    display: block;
+    width: 100%;
+  }
 }
 
 .ant-menu-item-selected {
@@ -144,7 +152,26 @@ body {
   font-weight: bold;
 }
 
+/* form */
+
+.form-date {
+  display: inline-block;
+  width: calc(60%-8px);
+}
+nav-moblie
 /* slick Slide */
+
+.slick-slide {
+  width: 100vw !important;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+.slick-arrow {
+  display: none !important;
+}
+
 .slick-dots {
   bottom: -10px !important;
 }
@@ -153,24 +180,27 @@ body {
   height: 5px !important;
 }
 
+.slick-initialized .slick-slide {
+  border-radius: 0.75rem !important;
+}
+
 .slick-dots li.slick-active button:before {
   color: #096dd9 !important;
 }
 .sale-icon::before {
   content: "%";
   position: absolute;
-  transform: translate(-90% ,-110%);
+  transform: translate(-90%, -110%);
   height: 30%;
   width: 40%;
   border-end-end-radius: 10px;
   border-start-end-radius: 10px;
-  background-color: #0D1B32;
+  background-color: #0d1b32;
   font-size: 8px;
   text-align: center;
   line-height: 15px;
   color: white;
   z-index: 20;
-
 }
 .sale-icon::after {
   content: "";
@@ -182,4 +212,43 @@ body {
   border-left: 3px solid transparent;
   border-bottom: 3px solid transparent;
   border-top: 3px solid #163752;
+}
+/* nav-moblie */
+.nav-moblie {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* autocomplete */
+.departure-date,
+.flight-takeoff .ant-select-selector {
+  border-end-end-radius: 0 !important;
+  border-start-end-radius: 0 !important;
+}
+.flight-takeoff .ant-select-selection-search-input {
+  size: 14 !important;
+}
+.return-date,
+.flight-planing .ant-select-selector {
+  border-end-start-radius: 0 !important;
+  border-start-start-radius: 0 !important;
+  padding-left: 16px !important;
+}
+
+.disabled {
+  color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.special::before {
+  content: "";
+  width: 100px;
+  height: 10px;
+  position: absolute;
+  border-bottom: 1px solid #096dd9;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
