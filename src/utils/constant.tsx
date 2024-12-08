@@ -1,7 +1,8 @@
 import { GuestAndRoom } from "@/app/components/form/formpage";
 import { FaChild, FaUserGroup } from "react-icons/fa6";
 import { MdOutlineMeetingRoom } from "react-icons/md";
-import { CityGuideFill, FlightFill } from "./icon";
+import {  CityGuideFill, FlightFill } from "./icon";
+
 
 export const menuItems = [
   { key: 1, label: "Deals" },
@@ -42,6 +43,8 @@ export const keywordForm = {
   RENT_CAR: 5,
   ACTIVITES: 6,
 };
+
+
 
 export const typeFlight = [
   {

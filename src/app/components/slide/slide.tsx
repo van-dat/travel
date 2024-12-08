@@ -13,7 +13,7 @@ const SlideComponent = (props: Props) => {
   const [numberSlide, setnumberSlide] = useState<number>(0);
   const [slideIndex, setSlideIndex] = useState<number>(0);
 
-  const [duration, setDuration] = useState<number>(3000);
+  const [duration, setDuration] = useState<number>(1000);
   const [pop, api] = useSpring(
     () => ({
       from: { opacity: 0, y: 50 },
@@ -36,7 +36,7 @@ const SlideComponent = (props: Props) => {
   const settings = {
     infinite: true,
     autoplay: true,
-    speed: 1000,
+    speed: duration,
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: false,

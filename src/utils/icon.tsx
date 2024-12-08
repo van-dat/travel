@@ -1,8 +1,13 @@
-export const FlightIcon = () => {
+type Props = {
+  width?: number;
+  height?: number;
+};
+export const FlightIcon = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width={24}
-      height={24}
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,11 +22,12 @@ export const FlightIcon = () => {
   );
 };
 
-export const HotelIcon = () => {
+export const HotelIcon = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width={24}
-      height={24}
+      width={width || 24}
+      height={height || 24}
       stroke={""}
       viewBox="0 0 24 24"
       fill="none"
@@ -40,11 +46,12 @@ export const HotelIcon = () => {
   );
 };
 
-export const Transpost = () => {
+export const Transpost = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width={24}
-      height={24}
+      width={width || 24}
+      height={height || 24}
       stroke={""}
       viewBox="0 0 24 24"
       fill="none"
@@ -62,11 +69,12 @@ export const Transpost = () => {
     </svg>
   );
 };
-export const AirportPickUp = () => {
+export const AirportPickUp = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="24"
-      height="24"
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -83,11 +91,12 @@ export const AirportPickUp = () => {
     </svg>
   );
 };
-export const RentVehical = () => {
+export const RentVehical = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="24"
-      height="24"
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -104,11 +113,12 @@ export const RentVehical = () => {
     </svg>
   );
 };
-export const FunActive = () => {
+export const FunActive = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width={24}
-      height={24}
+      width={width || 24}
+      height={height || 24}
       stroke={""}
       viewBox="0 0 24 24"
       fill="none"
@@ -137,11 +147,12 @@ export const Bed = () => {
   );
 };
 
-export const Calendar = () => {
+export const Calendar = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="20"
-      height="20"
+      width={width || 20}
+      height={height || 20}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -156,11 +167,12 @@ export const Calendar = () => {
   );
 };
 
-export const FlightTakeOff = () => {
+export const FlightTakeOff = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="24"
-      height="24"
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -175,11 +187,12 @@ export const FlightTakeOff = () => {
   );
 };
 
-export const FlightPlaning = () => {
+export const FlightPlaning = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="24"
-      height="24"
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -194,11 +207,12 @@ export const FlightPlaning = () => {
   );
 };
 
-export const FlightFill = () => {
+export const FlightFill = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="16"
-      height="16"
+      width={width || 16}
+      height={height || 16}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -218,11 +232,12 @@ export const FlightFill = () => {
     </svg>
   );
 };
-export const CityGuideFill = () => {
+export const CityGuideFill = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="16"
-      height="16"
+      width={width || 16}
+      height={height || 16}
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -240,11 +255,12 @@ export const CityGuideFill = () => {
   );
 };
 
-export const SeatIcon = () => {
+export const SeatIcon = (props: Props) => {
+  const { width, height } = props;
   return (
     <svg
-      width="16"
-      height="16"
+      width={width || 16}
+      height={height || 16}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -255,6 +271,96 @@ export const SeatIcon = () => {
         stroke="#000"
       ></path>
       <path d="M13 10H17" stroke="#000"></path>
+    </svg>
+  );
+};
+
+export const BookingIcon = (props: Props) => {
+  const { width, height } = props;
+  return (
+    <svg
+      width={width || 20}
+      height={height || 20}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      data-id="IcUserBooking"
+    >
+      <path
+        d="M4 7V19C4 20.1046 4.89543 21 6 21H18C19.1046 21 20 20.1046 20 19V7M4 7V5C4 3.89543 4.89543 3 6 3H18C19.1046 3 20 3.89543 20 5V7M4 7H8.5M20 7H12"
+        stroke="#115EA0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M16 17H12.5C12.2239 17 12 16.7761 12 16.5C12 16.2239 12.2239 16 12.5 16H16C16.2761 16 16.5 16.2239 16.5 16.5C16.5 16.7761 16.2761 17 16 17Z"
+        stroke="#115EA0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M16 12H12.5C12.2239 12 12 11.7761 12 11.5C12 11.2239 12.2239 11 12.5 11H16C16.2761 11 16.5 11.2239 16.5 11.5C16.5 11.7761 16.2761 12 16 12Z"
+        stroke="#115EA0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M7.5 12V11H8.5V12H7.5Z"
+        stroke="#115EA0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M7.5 17V16H8.5V17H7.5Z"
+        stroke="#115EA0"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const VietNam = () => {
+  return (
+    <img
+      loading="lazy"
+      src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/a/a3478fc6e57b8681609c1458bd50cbb9.svg"
+      decoding="async"
+      width="18"
+      height="18"
+      className="border-ensign rounded-full  "
+    ></img>
+  );
+};
+
+export const AirportTranfer = (props: Props) => {
+  const { width, height } = props;
+  return (
+    <svg
+      width={width || 24}
+      height={height || 24}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      data-id="IcProductDuotoneAirportTransportFill"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M19.5 16.5L19 15H10V14H13H14H14.8371C15.1693 14 15.4092 13.682 15.3179 13.3626L15.1217 12.6758C15.088 12.5578 15.0474 12.4432 15.0006 12.3323L17 9H21C21.5523 9 22 8.55228 22 8C22 7.44772 21.5523 7 21 7H17L14 2H13L14 7H11L10 6H9L9.5 8H7V3C7 1.89543 7.89543 1 9 1H21C22.1046 1 23 1.89543 23 3V13C23 14.1046 22.1046 15 21 15L20.5 16.5L21 18V21.5C21 22.0523 20.5523 22.5 20 22.5C19.4477 22.5 19 22.0523 19 21.5V18L19.5 16.5ZM13.6313 10.8435L14 9H11L10 10V10.5H12.2371C12.7354 10.5 13.2112 10.6229 13.6313 10.8435Z"
+        fill="#6DD3CE"
+      ></path>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M12.7913 9C13.1976 9 13.5921 9.06115 13.9649 9.17557L13.6313 10.8435C13.2112 10.6229 12.7354 10.5 12.2371 10.5H8.7629C7.42346 10.5 6.24631 11.3879 5.87833 12.6758L5.6821 13.3626C5.59084 13.682 5.83068 14 6.16286 14H13H14H14.8371C15.1693 14 15.4092 13.682 15.3179 13.3626L15.1217 12.6758C15.088 12.5578 15.0474 12.4432 15.0006 12.3323L16.0184 10.636C16.338 11.072 16.5729 11.5779 16.6961 12.1323L17 13.5L17.9207 13.1931C18.2531 13.0823 18.6164 13.2328 18.7731 13.5461C18.9086 13.8172 18.8555 14.1445 18.6412 14.3588L18 15C18.5523 15 19 15.4477 19 16V18.382C19 19.0672 18.6129 19.6936 18 20V21C18 21.8284 17.3284 22.5 16.5 22.5C15.6716 22.5 15 21.8284 15 21V20H6V21C6 21.8284 5.32843 22.5 4.5 22.5C3.67157 22.5 3 21.8284 3 21V20C2.38713 19.6936 2 19.0672 2 18.382V16C2 15.4477 2.44772 15 3 15L2.35881 14.3588C2.14453 14.1445 2.09141 13.8172 2.22693 13.5461C2.38362 13.2328 2.74689 13.0823 3.07927 13.1931L4 13.5L4.30394 12.1323C4.71064 10.3021 6.33389 9 8.20869 9H9.25L9 10H10L11 9H12.7913ZM5.5 18H7.5C8.05228 18 8.5 17.5523 8.5 17C8.5 16.4477 8.05228 16 7.5 16H5.5C4.94772 16 4.5 16.4477 4.5 17C4.5 17.5523 4.94772 18 5.5 18ZM15.5 18H13.5C12.9477 18 12.5 17.5523 12.5 17C12.5 16.4477 12.9477 16 13.5 16H15.5C16.0523 16 16.5 16.4477 16.5 17C16.5 17.5523 16.0523 18 15.5 18Z"
+        fill="#6DD3CE"
+      ></path>
     </svg>
   );
 };

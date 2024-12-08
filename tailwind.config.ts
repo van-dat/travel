@@ -15,7 +15,8 @@ const config: Config = {
         primary: "#f5f5f5",
         disabled: "rgba(0, 0, 0, 0.25)",
         hover: "#219FE3",
-        'text1': "rgba(0, 0, 0, 0.88)"
+        'text1': "rgba(0, 0, 0, 0.88)",
+        text2: "#687176"
 
 
       },

@@ -8,9 +8,13 @@ import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { BsList } from "react-icons/bs";
 import { LuUser2 } from "react-icons/lu";
 
-type Props = {};
+type Props = {
+  setOpen?: any;
+  isOpen?: boolean;
+};
 
 const Header = (props: Props) => {
+  const { setOpen, isOpen } = props;
   const { actionNav } = useAppSelector((state: any) => state?.localSlice);
 
   const useDispatch = useAppDispatch();
@@ -19,7 +23,10 @@ const Header = (props: Props) => {
     <div className="bg-transparent flex justify-between flex-col">
       <div className="flex h-[50px] md:h-[60] justify-between px-3">
         {/* MENU MOBILE */}
-        <div className="my-auto flex md:hidden p-2">
+        <div
+          onClick={() => setOpen(!isOpen)}
+          className="my-auto flex md:hidden p-2"
+        >
           <BsList color="white" size={22} />
         </div>
         <div className="text-white flex items-center justify-center text-xl w-1/5">

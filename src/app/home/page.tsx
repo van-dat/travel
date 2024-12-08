@@ -9,18 +9,20 @@ import TitleComponent from "@/app/components/title/title";
 import SlideComponent from "@/app/components/slide/slide";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Drawer } from "antd";
 import { Bed, FlightIcon, FunActive } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
 import NavbarMobile from "../components/navbar/navbar-mobile";
 import { FaLocationDot } from "react-icons/fa6";
 import TabComponent from "../components/tabs/tabComponent";
+import DrawerComponent from "../components/drawer/drawerComponent";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
   const [data] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
   const [activeNav, setActiveNav] = useState<number>(3);
+  const [open, setOpen] = useState(false);
 
   return (
     <main className="bg-container w-full flex-col flex ">
@@ -43,8 +45,9 @@ const HomePage = () => {
       </div>
 
       <header className="bg-header md:hidden">
-        <Header />
+        <Header setOpen={setOpen} isOpen={open} />
       </header>
+      <DrawerComponent setOpen={setOpen} isOpen={open} />
 
       <nav className="md:hidden mt-4">
         <NavbarMobile setActiveNav={setActiveNav} activeNav={activeNav} />
