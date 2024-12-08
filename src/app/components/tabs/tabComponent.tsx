@@ -54,17 +54,13 @@ const TabComponent: NextPage<Props> = ({}) => {
         <Slider {...settings}>
           {items.map((item) => (
             <div key={item.key}>
-              <div className="p-4 flex gap-5 flex-col">
+              <div className="p-4 flex gap-6 flex-col">
                 <div className="flex justify-center items-center ">
                   <h3 className="text-md font-semibold">{item.label}</h3>
                 </div>
                 <div className="grid grid-cols-2">
                   {data.map((item: any) => (
-                    <Link
-                      href="#"
-                      key={item.id}
-                      className="border-b text-xs p-1"
-                    >
+                    <Link href="#" key={item.id} className="border-b  p-1">
                       {item.label}
                     </Link>
                   ))}

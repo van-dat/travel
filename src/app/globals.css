@@ -152,6 +152,11 @@ body {
   font-weight: bold;
 }
 
+.border-ensign {
+  border: 1px solid #115EA0 !important;
+  object-fit: none;
+}
+
 /* form */
 
 .form-date {
@@ -251,4 +256,9 @@ nav-moblie
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
+}
+/* drawer */
+
+.ant-drawer-body {
+  padding: 0  !important;
 }

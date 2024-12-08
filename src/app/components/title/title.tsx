@@ -17,7 +17,7 @@ const TitleComponent = (props: Props) => {
     <div className="md:grid md:grid-cols-3 flex flex-col grid-cols-none gap-4 md:gap-0 ">
       <div className="md:col-span-2 md:block flex justify-center items-center">
         <div className="flex items-center gap-4">
-          {icon && <div className="bg-header text-white p-2 rounded-full">{icon}</div>}
+          {icon && <div className="bg-header text-white p-2 rounded-full md:block hidden">{icon}</div>}
           <h3 className={`${style}`}>{title}</h3>
         </div>
       </div>
