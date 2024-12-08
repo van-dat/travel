@@ -5,7 +5,7 @@ type Types = "primary" | "dashed" | "link" | "text";
 type Variants = "outlined" | "dashed" | "solid" | "filled" | "text" | "link";
 type Props = {
   icon?: React.ReactNode;
-  styleCss?: string;
+  styleCss?: React.CSSProperties;
   text?: string;
   iconPosition?: IconPosition;
   types?: Types;
@@ -26,18 +26,20 @@ const ButtonComponent = (props: Props) => {
     radius,
   } = props;
 
+  const combinedStyle: React.CSSProperties = {
+    ...styleCss,
+    paddingTop: 20,
+    paddingBottom: 20,
+    borderRadius: radius || 26,
+    display: "flex",
+    backgroundColor: background || "white",
+  };
+
   return (
     <Button
       variant={variants ? variants : "text"}
       type={types ? types : "default"}
-      style={{
-        paddingTop: "20px",
-        paddingBottom: "20px",
-        borderRadius: `${radius ? radius : "26px"}`,
-        display: "flex",
-        justifyContent: "space-between",
-        background: `${background ? background : "white"}`,
-      }}
+      style={combinedStyle}
       iconPosition={iconPosition ? iconPosition : "start"}
       icon={icon}
     >

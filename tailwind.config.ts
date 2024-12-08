@@ -12,7 +12,11 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         text: "rgba(255, 255, 255, 0.65)",
-        primary: "#f5f5f5"
+        primary: "#f5f5f5",
+        disabled: "rgba(0, 0, 0, 0.25)",
+        hover: "#219FE3",
+        'text1': "rgba(0, 0, 0, 0.88)"
+
 
       },
       backgroundColor: {
@@ -22,7 +26,8 @@ const config: Config = {
         container: "rgba(245, 247, 254, 1) !important",
         input: "rgba(245, 247, 254, 1) !important",
         boxImage: "rgba(255, 255, 255, 0.5)",
-        header: "#219FE3"
+        header: "#219FE3",
+        disabled: "rgba(0, 0, 0, 0.04)"
 
       },
       borderColor: {

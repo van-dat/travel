@@ -10,19 +10,21 @@ import SlideComponent from "@/app/components/slide/slide";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { Bed } from "@/utils/icon";
+import { Bed, FlightIcon, FunActive } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
 import NavbarMobile from "../components/navbar/navbar-mobile";
+import { FaLocationDot } from "react-icons/fa6";
+import TabComponent from "../components/tabs/tabComponent";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
   const [data] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
-  const [activeNav, setActiveNav] = useState<number>(1);
+  const [activeNav, setActiveNav] = useState<number>(3);
 
   return (
-    <main className="bg-container w-full flex-col flex overflow-hidden gap-4">
-      <section
+    <main className="bg-container w-full flex-col flex ">
+      <div
         className="transition-bg md:block hidden "
         style={{
           backgroundImage: `url(${data[numberSlide]?.background})`,
@@ -38,13 +40,13 @@ const HomePage = () => {
             data={data}
           />
         </div>
-      </section>
+      </div>
 
       <header className="bg-header md:hidden">
         <Header />
       </header>
 
-      <nav className="md:hidden">
+      <nav className="md:hidden mt-4">
         <NavbarMobile setActiveNav={setActiveNav} activeNav={activeNav} />
       </nav>
 
@@ -71,25 +73,29 @@ const HomePage = () => {
           </div>
           <div className="md:col-span-2 col-span-4  flex justify-center items-center  ">
             <div className="w-[90%] border bg-white rounded-xl px-4 py-6 ">
-              <Formpage />
+              <Formpage activeNav={activeNav} />
             </div>
           </div>
         </div>
       </section>
-      <section className="md:max-w-7xl mx-auto flex gap-8 flex-col p-2 md:p-0 ">
+      <section className="max-w-7xl w-full mx-auto flex gap-8 flex-col p-2 md:p-0 ">
         <TitleComponent
           title="Best event for 2024 "
           text="Cultural festivals celebrate the diversity of 
             different cultures through music, dance, food and art."
+          icon={<FunActive />}
         />
-        <SlideComponent dataSlide={[]} duration={0} />
+        <div className="w-full overflow-hidden  px-4 xl:px-0">
+          <SlideComponent dataSlide={[]} />
+        </div>
       </section>
       {/* recommend */}
 
-      <section className="max-w-7xl hidden mx-auto md:flex gap-8 flex-col min-h-[400px] mt-7 ">
+      <section className="max-w-7xl w-full hidden mx-auto md:flex gap-8 flex-col min-h-[400px] mt-7 ">
         <TitleComponent
-          title="Recommended For You"
+          title="Top Favorite Destinations"
           text="I hope you find these recommendations enjoyable !"
+          icon={<FaLocationDot size={24} color="white" />}
         />
         <div className="grid  transition-all items-end duration-300 grid-flow-row  container-grid gap-4 flex-wrap  ">
           {Array.from({ length: 4 }, (_, idx) => (
@@ -128,29 +134,38 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-      <section className="image-background w-full mx-auto flex gap-8 flex-col  mt-7">
-        <div className="bg-boxImage flex justify-center items-center h-[500px] flex-col">
-          <h2 className="max-w-4xl text-5xl text-center leading-[60px]">
-            Ready to embark on your next adventure? Connect with TripTrap today
-            to start planning your dream trip
-          </h2>
-          <Button
-            className="flex justify-between"
-            style={{
-              marginTop: "40px",
-              background: "black",
-              paddingTop: "25px",
-              paddingBottom: "25px",
-              borderRadius: "26px",
-            }}
-          >
-            <div className="p-[6px] rounded-full border bg-white">
-              <Bed />
-            </div>
-            <h3 className="text-primary"> Booking Now</h3>
-          </Button>
+      <section className="max-w-7xl w-full mx-auto flex gap-8 flex-col my-7 ">
+        <div className="hidden md:block">
+          <TitleComponent title="What do you want to explore ?" text={""} />
+        </div>
+        <TabComponent />
+      </section>
+      <section className="image-background w-full mx-auto flex gap-8 flex-col">
+        <div className="bg-boxImage flex justify-center items-center h-[500px] flex-col ">
+          <div className="w-[90%] mx-auto flex justify-center items-center flex-col">
+            <h2 className="max-w-4xl  text-center leading-[60px]">
+              Ready to embark on your next adventure? Connect with TripTrap
+              today to start planning your dream trip
+            </h2>
+            <Button
+              className="inline-flex justify-between max-w-[300px] "
+              style={{
+                marginTop: "40px",
+                background: "black",
+                paddingTop: "25px",
+                paddingBottom: "25px",
+                borderRadius: "26px",
+              }}
+            >
+              <div className="p-[6px] rounded-full border bg-white">
+                <Bed />
+              </div>
+              <h3 className="text-primary"> Booking Now</h3>
+            </Button>
+          </div>
         </div>
       </section>
+
       <FooterComponent />
     </main>
   );
