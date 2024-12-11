@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import dayjs from "dayjs";
 import ButtonComponent from "../button/buttonComponent";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import { keywordForm, listButton } from "@/utils/constant";
+import { keywordForm, listButton } from "@/app/utils/constant";
 import FormHotel from "./formHotel";
 import FormFlight from "./formFlight";
 import FormCar from "./formCar";
@@ -160,7 +160,7 @@ const Formpage = (props: Props) => {
           setValue={handleSelectValueFligt}
         />
       )}
-       {activeNav === keywordForm.CAR && (
+      {activeNav === keywordForm.CAR && (
         <FormCar
           guestAndRoome={guestAndRoome}
           dropdownRender={dropdownRender}

@@ -39,7 +39,7 @@ const CarouselPage = (props: Props) => {
   }, []);
 
   return (
-    <div className="hidden md:flex h-full py-4 pl-8 overflow-hidden flex-col">
+    <div className="hidden md:flex h-full py-4 pl-8 overflow-hidden flex-col mt-[200px]">
       <div className="h-4/5 relative flex border-l-2 border-solid border-left">
         <TimeLine total={data?.length} active={numberSlide + 1} />
         {data && data.length > 0 && (
@@ -57,7 +57,11 @@ const CarouselPage = (props: Props) => {
                 <ButtonComponent
                   iconPosition="start"
                   icon={<ArrowRightOutlined />}
-                  text="Booking Now" types={"primary"} variants={"outlined"} background={"#4096FF"}  />
+                  text="Booking Now"
+                  types={"primary"}
+                  variants={"outlined"}
+                  background={"#4096FF"}
+                />
               </div>
             </div>
             <Side

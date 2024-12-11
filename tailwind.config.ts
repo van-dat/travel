@@ -19,6 +19,8 @@ const config: Config = {
         text2: "#687176"
 
 
+
+
       },
       backgroundColor: {
         blur: "rgba(0, 0, 0, 0.3)",
@@ -28,8 +30,8 @@ const config: Config = {
         input: "rgba(245, 247, 254, 1) !important",
         boxImage: "rgba(255, 255, 255, 0.5)",
         header: "#219FE3",
-        disabled: "rgba(0, 0, 0, 0.04)"
-
+        disabled: "rgba(0, 0, 0, 0.04)",
+        hover: "#F2F3F3"
       },
       borderColor: {
         left: "rgba(255, 255, 255, 0.7) ",

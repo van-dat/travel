@@ -4,12 +4,7 @@ import { MdOutlineMeetingRoom } from "react-icons/md";
 import {  CityGuideFill, FlightFill } from "./icon";
 
 
-export const menuItems = [
-  { key: 1, label: "Deals" },
-  { key: 2, label: "Suports" },
-  { key: 3, label: "Prtnership" },
-  { key: 4, label: "Bookings" },
-];
+
 
 export interface ButtonList {
   key: keyof GuestAndRoom;

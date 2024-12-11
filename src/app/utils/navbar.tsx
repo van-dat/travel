@@ -13,7 +13,7 @@ import {
 import { LuUser2 } from "react-icons/lu";
 import { LiaPhoneSolid } from "react-icons/lia";
 import { IoHelpCircleOutline } from "react-icons/io5";
-import { FaMoneyBills } from "react-icons/fa6";
+import { FaBloggerB, FaMoneyBills } from "react-icons/fa6";
 import { RiHotelLine, RiMobileDownloadLine } from "react-icons/ri";
 import { PiSealPercent } from "react-icons/pi";
 import { FaBusAlt } from "react-icons/fa";
@@ -22,15 +22,10 @@ import {
   MdOutlineFlight,
   MdOutlineNetworkPing,
 } from "react-icons/md";
+import { CgFileDocument } from "react-icons/cg";
+import { TbCalendarQuestion } from "react-icons/tb";
 
-const country = [
-  {
-    id: 1,
-    label: "Việt Nam",
-    summary: "",
-    ensign: <VietNam />,
-  },
-];
+
 
 export const navBar = [
   { key: 1, label: "Khách sạn", href: "/hotel", icon: <HotelIcon /> },
@@ -105,13 +100,13 @@ export const MenuMobile = [
   {
     id: 1,
     label: "SALE",
-    icon: <BsShop size={18} color={"#115EA0"} />,
+    icon: <BsShop size={24} color={"#115EA0"} />,
     href: "#",
   },
   {
     id: 2,
     label: "Đăng nhập",
-    icon: <LuUser2 size={20} color={"#115EA0"} />,
+    icon: <LuUser2 size={24} color={"#115EA0"} />,
     href: "#",
   },
   {
@@ -124,32 +119,34 @@ export const MenuMobile = [
     id: 4,
     label: "Hỗ trợ Khách hàng",
     icon: (
-      <LiaPhoneSolid className="scale-x-[-1]" size={20} color={"#115EA0"} />
+      <LiaPhoneSolid className="scale-x-[-1]" size={24} color={"#115EA0"} />
     ),
     href: "#",
   },
   {
     id: 5,
     label: "Trợ giúp",
-    icon: <IoHelpCircleOutline size={22} color={"#115EA0"} />,
+    icon: <IoHelpCircleOutline size={24} color={"#115EA0"} />,
     href: "#",
   },
   {
     id: 6,
     label: "Quốc gia & Ngôn ngữ",
     icon: <VietNam />,
+    language: "VI-VN",
     href: "#",
   },
   {
     id: 7,
     label: "Ngoại tệ",
-    icon: <FaMoneyBills size={20} color={"#115EA0"} />,
+    icon: <FaMoneyBills size={24} color={"#115EA0"} />,
+    language: "VND",
     href: "#",
   },
   {
     id: 8,
     label: "Tải Ứng dụng",
-    icon: <RiMobileDownloadLine size={20} color={"#115EA0"} />,
+    icon: <RiMobileDownloadLine size={24} color={"#115EA0"} />,
     href: "#",
   },
 ];
@@ -159,49 +156,87 @@ export const navBarMobile2 = [
     key: 1,
     label: "Khuyến mãi",
     href: "/sale",
-    icon: <PiSealPercent size={20} color={"#FF6064"} />,
+    icon: <PiSealPercent size={24} color={"#FF6064"} />,
   },
   {
     key: 2,
     label: "Khách sạn",
     color: "#1AC3F3",
     href: "/hotel",
-    icon: <RiHotelLine size={20} color={"#1AC3F3"} />,
+    icon: <RiHotelLine size={24} color={"#1AC3F3"} />,
   },
   {
     key: 3,
     label: "Vé máy bay",
     color: "#115EA0",
     href: "/flight",
-    icon: <MdOutlineFlight size={20} color={"#FF6064"} />,
+    icon: <MdOutlineFlight size={24} color={"#FF6064"} />,
   },
   {
     key: 4,
     label: "Vé xe khách",
     color: "#FF6064",
     href: "/bus-and-shuttle",
-    icon: <FaBusAlt size={18} color={"#20BF55"} />,
+    icon: <FaBusAlt size={24} color={"#24BF55"} />,
   },
   {
     key: 5,
     label: "Đưa đón sân bay",
     color: "#4BD4CF",
     href: "/airport-transfer",
-    icon: <AirportTranfer height={20} width={20} />,
+    icon: <AirportTranfer height={24} width={24} />,
   },
   {
     key: 6,
     label: "Cho thuê xe ",
     color: "#00657F",
     href: "/car-rental",
-    icon: <MdCarRental size={20} color={"#00657F"} />,
+    icon: <MdCarRental size={24} color={"#00657F"} />,
   },
   {
     key: 7,
     label: "Hoạt động & vui chơi",
     color: "#fefefe",
     href: "/activites",
-    icon: <MdOutlineNetworkPing size={20} color={"#FF6D6A"} />,
+    icon: <MdOutlineNetworkPing size={24} color={"#FF6D6A"} />,
   },
 ];
-export const dataMenu = [[...MenuMobile], [...navBarMobile2]];
+
+const withTravle = [
+  {
+    key: 1,
+    label: "Về Travel",
+    href: "#",
+    icon: <PiSealPercent size={24} color={"#115EA0"} />,
+  },
+  {
+    key: 2,
+    label: "Blog",
+    color: "#1AC3F3",
+    href: "/blog",
+    icon: <FaBloggerB size={24} color={"#115EA0"} />,
+  },
+  {
+    key: 3,
+    label: "Cách đặt chỗ",
+    color: "#115EA0",
+    href: "/how-to",
+    icon: <TbCalendarQuestion size={24} color={"#115EA0"} />,
+  },
+  {
+    key: 4,
+    label: "Chính sách Quyền riêng",
+    color: "#FF6064",
+    href: "/policy",
+    icon: <CgFileDocument size={24} color={"#115EA0"} />,
+  },
+  {
+    key: 5,
+    label: "Điều khoản & Điều kiện",
+    color: "#4BD4CF",
+    href: "/terms",
+    icon: <CgFileDocument size={24} color={"#115EA0"} />,
+  },
+];
+
+export const dataMenu = [[...MenuMobile], [...navBarMobile2], [...withTravle]];

@@ -11,13 +11,13 @@ type Props = {
 const TitleComponent = (props: Props) => {
   const { title, styleCss, text, icon } = props;
 
-  const style = styleCss ? `${styleCss} text-3xl : ` : "text-3xl";
+  const style = styleCss ? `${styleCss} text-2xl : ` : "text-2xl md:text-3xl";
 
   return (
     <div className="md:grid md:grid-cols-3 flex flex-col grid-cols-none gap-4 md:gap-0 ">
       <div className="md:col-span-2 md:block flex justify-center items-center">
         <div className="flex items-center gap-4">
-          {icon && <div className="bg-header text-white p-2 rounded-full md:block hidden">{icon}</div>}
+          {icon && <div className=" text-white md:block hidden">{icon}</div>}
           <h3 className={`${style}`}>{title}</h3>
         </div>
       </div>

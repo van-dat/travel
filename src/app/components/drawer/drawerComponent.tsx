@@ -1,4 +1,4 @@
-import { dataMenu, MenuMobile, navBarMobile } from "@/utils/navbar";
+import { dataMenu, MenuMobile, navBarMobile } from "@/app/utils/navbar";
 import { Drawer } from "antd";
 import Link from "next/link";
 
@@ -25,14 +25,19 @@ const DrawerComponent = (props: Props) => {
     >
       {dataMenu.map((item: any, idx: number) => (
         <div key={idx} className="border-t">
-          {item.map((list: any) => (
+          {item.map((list: any, idx: number) => (
             <Link
-              className="flex items-center gap-3 py-2 text-text-1 px-6 "
-              key={list.id}
+              className="flex items-center gap-4 py-2 text-text-1 px-6 "
+              key={idx}
               href={list.href}
             >
               <div className="max-w-6 w-full flex ">{list.icon}</div>
-              <div className="text-text2">{list.label}</div>
+              <div className="text-text2 text-base flex justify-between w-full">
+                {list.label}{" "}
+                {list.language && (
+                  <span className="font-bold ">{list.language}</span>
+                )}
+              </div>
             </Link>
           ))}
         </div>
