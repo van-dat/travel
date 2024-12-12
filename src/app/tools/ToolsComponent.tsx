@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 import { useEffect, useRef, useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { country, deffaultLanguage } from "../utils/languages";
+import { country, deffaultLanguage } from "../../utils/languages";
 import Link from "next/link";
-import { SaleIcon } from "../utils/icon";
+import { SaleIcon } from "../../utils/icon";
 import { IoIosCheckmark } from "react-icons/io";
 import { Button } from "antd";
 

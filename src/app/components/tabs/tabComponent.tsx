@@ -2,7 +2,7 @@ import { Tabs, TabsProps } from "antd";
 import { NextPage } from "next";
 import ChildrenTaps from "./childrenTaps";
 import Slider from "react-slick";
-import { data } from "@/app/utils/constant";
+import { data } from "@/utils/constant";
 import Link from "next/link";
 
 interface Props {}

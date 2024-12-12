@@ -1,4 +1,4 @@
-import { navBarMobile } from "@/app/utils/navbar";
+import { navBarMobile } from "@/utils/navbar";
 import { NextPage } from "next";
 import Link from "next/link";
 import Slider from "react-slick";

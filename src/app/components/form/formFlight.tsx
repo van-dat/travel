@@ -10,8 +10,8 @@ import { MdOutlineNightlight } from "react-icons/md";
 import { ReactNode, useState } from "react";
 import CompleteComponent from "../selection/completeComponent";
 import { UserSwitchOutlined } from "@ant-design/icons";
-import { typeFlight } from "@/app/utils/constant";
-import { FlightPlaning, FlightTakeOff, SeatIcon } from "@/app/utils/icon";
+import { typeFlight } from "@/utils/constant";
+import { FlightPlaning, FlightTakeOff, SeatIcon } from "@/utils/icon";
 import DoubleCalendar from "../calendar/doubleCalendar";
 
 type Props = {

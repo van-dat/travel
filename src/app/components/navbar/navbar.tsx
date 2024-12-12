@@ -1,5 +1,5 @@
 import { setActionNav } from "@/app/redux/slices/localSlide";
-import { navBar } from "@/app/utils/navbar";
+import { navBar } from "@/utils/navbar";
 
 type Props = {
   dispatch: any;

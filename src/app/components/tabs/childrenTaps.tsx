@@ -1,4 +1,4 @@
-import { data } from "@/app/utils/constant";
+import { data } from "@/utils/constant";
 import { NextPage } from "next";
 import Link from "next/link";
 

@@ -8,7 +8,7 @@ import SlideComponent from "@/app/components/slide/slide";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { Bed, FunActive } from "@/app/utils/icon";
+import { Bed, FunActive } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
 import { FaLocationDot } from "react-icons/fa6";
 import TabComponent from "../components/tabs/tabComponent";

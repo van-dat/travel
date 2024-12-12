@@ -1,5 +1,5 @@
-import { data } from "@/app/utils/constant";
-import { AirportPickUp, FlightPlaning, FlightTakeOff } from "@/app/utils/icon";
+import { data } from "@/utils/constant";
+import { AirportPickUp, FlightPlaning, FlightTakeOff } from "@/utils/icon";
 import { AutoComplete, Form } from "antd";
 import { ReactNode, useState } from "react";
 import { MdOutlineSwapHoriz } from "react-icons/md";

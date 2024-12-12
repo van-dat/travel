@@ -1,4 +1,4 @@
-import { dataMenu, MenuMobile, navBarMobile } from "@/app/utils/navbar";
+import { dataMenu, MenuMobile, navBarMobile } from "@/utils/navbar";
 import { Drawer } from "antd";
 import Link from "next/link";
 
