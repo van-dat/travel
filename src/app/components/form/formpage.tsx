@@ -160,7 +160,7 @@ const Formpage = (props: Props) => {
           setValue={handleSelectValueFligt}
         />
       )}
-       {activeNav === keywordForm.CAR && (
+      {activeNav === keywordForm.CAR && (
         <FormCar
           guestAndRoome={guestAndRoome}
           dropdownRender={dropdownRender}

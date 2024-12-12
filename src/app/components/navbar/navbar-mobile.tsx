@@ -3,12 +3,9 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Slider from "react-slick";
 
-type Props = {
-  setActiveNav: any;
-  activeNav: any;
-};
+type Props = {};
 
-const NavbarMobile: NextPage<Props> = ({ setActiveNav, activeNav }) => {
+const NavbarMobile: NextPage<Props> = () => {
   const settings = {
     dots: true,
     infinite: false,
@@ -31,9 +28,7 @@ const NavbarMobile: NextPage<Props> = ({ setActiveNav, activeNav }) => {
             >
               {item.icon}
             </Link>
-            <div className="text-black text-[8px] text-center">
-              {item.label}
-            </div>
+            <div className="text-black text-xs text-center">{item.label}</div>
           </div>
         ))}
       </Slider>

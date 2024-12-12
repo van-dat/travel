@@ -1,31 +1,29 @@
 "use client";
 import React, { useState } from "react";
-
 import { TRAVEL_PAGE_LOCATIONS } from "../../data/travel-data";
 import CarouselPage from "@/app/components/carousel/carouselPage";
-import Header from "@/app/components/header/header";
 import Formpage from "@/app/components/form/formpage";
 import TitleComponent from "@/app/components/title/title";
 import SlideComponent from "@/app/components/slide/slide";
 import ButtonComponent from "../components/button/buttonComponent";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { Button, Drawer } from "antd";
-import { Bed, FlightIcon, FunActive } from "@/utils/icon";
+import { Button } from "antd";
+import { Bed, FunActive } from "@/utils/icon";
 import FooterComponent from "../components/footer/footerComponent";
-import NavbarMobile from "../components/navbar/navbar-mobile";
 import { FaLocationDot } from "react-icons/fa6";
 import TabComponent from "../components/tabs/tabComponent";
-import DrawerComponent from "../components/drawer/drawerComponent";
+import EventCompoent from "../components/event/eventCompoent";
+import { ImFire } from "react-icons/im";
+import { useAppSelector } from "../redux/store";
 
 const HomePage = () => {
   const [numberSlide, setNumberSlide] = useState<number>(0);
   const [data] = useState<any>(TRAVEL_PAGE_LOCATIONS);
 
-  const [activeNav, setActiveNav] = useState<number>(3);
-  const [open, setOpen] = useState(false);
+  const { actionNav } = useAppSelector((state: any) => state?.localSlice);
 
   return (
-    <main className="bg-container w-full flex-col flex ">
+    <div className="bg-container w-full flex-col flex md:mt-0">
       <div
         className="transition-bg md:block hidden "
         style={{
@@ -34,8 +32,7 @@ const HomePage = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="w-full md:h-screen bg-blur">
-          <Header />
+        <div className="w-full md:h-screen bg-blur  flex items-center justify-center">
           <CarouselPage
             setNumberSlide={setNumberSlide}
             numberSlide={numberSlide}
@@ -44,17 +41,18 @@ const HomePage = () => {
         </div>
       </div>
 
-      <header className="bg-header md:hidden">
-        <Header setOpen={setOpen} isOpen={open} />
-      </header>
-      <DrawerComponent setOpen={setOpen} isOpen={open} />
+      {/* event */}
 
-      <nav className="md:hidden mt-4">
-        <NavbarMobile setActiveNav={setActiveNav} activeNav={activeNav} />
-      </nav>
+      <section className="max-w-7xl w-full mx-auto flex gap-4 flex-col mt-7 ">
+        <EventCompoent
+          icon={<ImFire color="#F7630C" size={24} />}
+          label={"Sale 12.12"}
+          labelColor="text-[#E7090E]"
+        />
+      </section>
 
-      <section>
-        <div className=" grid grid-cols-4 max-w-7xl mx-auto  py-[50px]">
+      <section className="hidden md:block">
+        <div className="  grid grid-cols-4 max-w-7xl mx-auto  py-[50px]">
           <div className="md:flex col-span-2 hidden  ">
             <div className="grid-cols-4 grid  ">
               <div className="flex col-span-1 flex-col  ">
@@ -76,12 +74,12 @@ const HomePage = () => {
           </div>
           <div className="md:col-span-2 col-span-4  flex justify-center items-center  ">
             <div className="w-[90%] border bg-white rounded-xl px-4 py-6 ">
-              <Formpage activeNav={activeNav} />
+              <Formpage activeNav={actionNav} />
             </div>
           </div>
         </div>
       </section>
-      <section className="max-w-7xl w-full mx-auto flex gap-8 flex-col p-2 md:p-0 ">
+      <section className="max-w-7xl w-full mx-auto flex gap-8 flex-col p-2 md:p-0  mt-7 md:mt-0">
         <TitleComponent
           title="Best event for 2024 "
           text="Cultural festivals celebrate the diversity of 
@@ -98,7 +96,7 @@ const HomePage = () => {
         <TitleComponent
           title="Top Favorite Destinations"
           text="I hope you find these recommendations enjoyable !"
-          icon={<FaLocationDot size={24} color="white" />}
+          icon={<FaLocationDot size={24} color="#219FE3" />}
         />
         <div className="grid  transition-all items-end duration-300 grid-flow-row  container-grid gap-4 flex-wrap  ">
           {Array.from({ length: 4 }, (_, idx) => (
@@ -170,7 +168,7 @@ const HomePage = () => {
       </section>
 
       <FooterComponent />
-    </main>
+    </div>
   );
 };
 

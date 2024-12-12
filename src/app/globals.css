@@ -20,9 +20,15 @@
   /* :root {  --layout-grid-3: 1fr 1fr 1fr ;} */
 }
 
+.hidden-scroll {
+  scrollbar-width: none;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
@@ -153,7 +159,7 @@ body {
 }
 
 .border-ensign {
-  border: 1px solid #115EA0 !important;
+  border: 1px solid #115ea0 !important;
   object-fit: none;
 }
 
@@ -260,5 +266,20 @@ nav-moblie
 /* drawer */
 
 .ant-drawer-body {
-  padding: 0  !important;
+  padding: 0 !important;
+}
+.open-option {
+  transform-origin: top center;
+  transform: translateY(16px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.open-option-show {
+  transform: translateY(0);
+  opacity: 1;
+  display: flex;
+}
+.open-option-hidden {
+  display: none !important;
 }

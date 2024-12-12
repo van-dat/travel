@@ -279,8 +279,8 @@ export const BookingIcon = (props: Props) => {
   const { width, height } = props;
   return (
     <svg
-      width={width || 20}
-      height={height || 20}
+      width={width || 24}
+      height={height || 24}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -331,8 +331,8 @@ export const VietNam = () => {
       loading="lazy"
       src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/a/a3478fc6e57b8681609c1458bd50cbb9.svg"
       decoding="async"
-      width="18"
-      height="18"
+      width="20"
+      height="20"
       className="border-ensign rounded-full  "
     ></img>
   );
@@ -362,5 +362,17 @@ export const AirportTranfer = (props: Props) => {
         fill="#6DD3CE"
       ></path>
     </svg>
+  );
+};
+
+export const SaleIcon = () => {
+  return (
+    <img
+      src="https://ik.imagekit.io/tvlk/image/imageResource/2024/12/02/1733106840807-aabd31d62bfb5af5ea5370544cf98893.png?tr=h-24,q-75,w-24"
+      decoding="async"
+      width="20"
+      height="20"
+      className="border-ensign rounded-full  "
+    ></img>
   );
 };
