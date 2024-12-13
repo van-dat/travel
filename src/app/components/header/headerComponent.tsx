@@ -1,8 +1,7 @@
 "use client";
 
-import { Button, Menu } from "antd";
+import { Button } from "antd";
 import Navbar from "../navbar/navbar";
-import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { BsList } from "react-icons/bs";
 import { LuUser2 } from "react-icons/lu";
@@ -32,10 +31,10 @@ const HeaderComponent = (props: Props) => {
         <div className=" flex items-center justify-center text-xl ">TRAVEL</div>
 
         {/* login */}
-        <div className=" md:hidden flex justify-center items-center px-2">
+        <div className=" md:hidden flex  items-center px-2">
           <LuUser2 size={22} color="white" />
         </div>
-        <div className="flex gap-8 ">
+        <div className="hidden gap-8 md:flex ">
           <div className="hidden md:flex justify-center w-full ">
             <ToolsComponent />
           </div>

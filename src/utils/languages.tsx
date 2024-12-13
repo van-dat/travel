@@ -24,6 +24,5 @@ export const country = [
 export const deffaultLanguage = () => {
   const languages = navigator.languages;
   const data = country.filter((item: any) => item.language === languages[0]);
-  console.log(data);
   return data[0];
 };

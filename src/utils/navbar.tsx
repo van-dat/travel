@@ -1,4 +1,4 @@
-import { BsShop } from "react-icons/bs";
+import { BsFillBookmarkCheckFill, BsShop } from "react-icons/bs";
 import {
   AirportPickUp,
   AirportTranfer,
@@ -7,6 +7,7 @@ import {
   FunActive,
   HotelIcon,
   RentVehical,
+  SaleIcon,
   Transpost,
   VietNam,
 } from "./icon";
@@ -19,13 +20,13 @@ import { PiSealPercent } from "react-icons/pi";
 import { FaBusAlt } from "react-icons/fa";
 import {
   MdCarRental,
+  MdOutlineEventNote,
   MdOutlineFlight,
   MdOutlineNetworkPing,
 } from "react-icons/md";
 import { CgFileDocument } from "react-icons/cg";
 import { TbCalendarQuestion } from "react-icons/tb";
-
-
+import { HiOutlineHome } from "react-icons/hi2";
 
 export const navBar = [
   { key: 1, label: "Khách sạn", href: "/hotel", icon: <HotelIcon /> },
@@ -240,3 +241,30 @@ const withTravle = [
 ];
 
 export const dataMenu = [[...MenuMobile], [...navBarMobile2], [...withTravle]];
+
+export const BottomNavbar = [
+  {
+    id: 1,
+    label: "Trang chủ",
+    link: "#",
+    icon: <HiOutlineHome size={24} />,
+  },
+  {
+    id: 2,
+    label: "Đã lưu",
+    link: "/save",
+    icon: <BsFillBookmarkCheckFill size={24} />,
+  },
+  {
+    id: 3,
+    label: "Đặt chỗ của tôi",
+    link: "/booking",
+    icon: <MdOutlineEventNote size={24} />,
+  },
+  {
+    id: 4,
+    label: "Tài khoản",
+    link: "/user",
+    icon: <LuUser2 size={24} />,
+  },
+];
