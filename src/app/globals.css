@@ -12,23 +12,20 @@
   --layout-grid: 1fr 1fr 1fr 1fr;
   --layout-grid-3: 1fr 1fr 1fr;
   --layout-grid-2: 1fr 1fr;
-  margin: 0;
-  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   /* :root {  --layout-grid-3: 1fr 1fr 1fr ;} */
 }
 
-.hidden-scroll {
-  scrollbar-width: none;
+html {
+  -webkit-text-size-adjust: 100%;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 @layer utilities {
@@ -99,6 +96,14 @@ body {
       color: red;
     }
   }
+}
+.hidden-scroll {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hidden-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .container-grid {

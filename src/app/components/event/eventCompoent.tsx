@@ -31,7 +31,7 @@ const EventCompoent: NextPage<Props> = (props: Props) => {
           height={720}
         />
       </div>
-      <div className="inline-flex gap-4 p-2 bg-white shadow-lg mt-5 overflow-x-auto hidden-scroll">
+      <div className="inline-flex gap-4 p-2 bg-white shadow-lg mt-5 hidden-scroll">
         <Image
           src={sale1}
           alt="img"

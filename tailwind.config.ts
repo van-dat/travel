@@ -1,3 +1,4 @@
+import { calc } from "antd/es/theme/internal";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -17,9 +18,6 @@ const config: Config = {
         hover: "#219FE3",
         'text1': "rgba(0, 0, 0, 0.88)",
         text2: "#687176"
-
-
-
 
       },
       backgroundColor: {
@@ -42,8 +40,13 @@ const config: Config = {
 
       },
       boxShadow: {
-        img: '0px 4px 12px  rgba(0, 0, 0, 0.1)'
+        img: '0px 4px 12px  rgba(0, 0, 0, 0.1)',
+        nav: '0px 0px 8px rgba(0 0 0 , 0.1)'
       },
+      width: {
+        header: "calc(100% - 17px)", // Định nghĩa một lớp tiện ích tên là `w-header`
+      },
+
 
     },
   },
