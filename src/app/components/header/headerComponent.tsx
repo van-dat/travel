@@ -27,7 +27,12 @@ const HeaderComponent = (props: Props) => {
         >
           <BsList color="white" size={22} />
         </div>
-        <div className=" flex items-center justify-center text-xl ">TRAVEL</div>
+        <div
+          onClick={() => router.push("/")}
+          className=" flex items-center justify-center text-xl cursor-pointer "
+        >
+          TRAVEL
+        </div>
 
         {/* login */}
         <div className=" md:hidden flex  items-center px-2">
