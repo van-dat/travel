@@ -5,23 +5,25 @@ import localeData from "dayjs/plugin/localeData";
 import "dayjs/locale/vi";
 import dayjs from "dayjs";
 import { ToastContainer } from "react-toastify";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderComponent from "./header/headerComponent";
 import NavbarMobile from "./navbar/navbar-mobile";
 import DrawerComponent from "./drawer/drawerComponent";
 import NavbarBottom from "./navbar/navbar-bottom";
+import { usePathname } from "next/navigation";
+import FooterComponent from "./footer/footerComponent";
 dayjs.locale("vi");
 dayjs.extend(localeData);
 
 export function ProviderAndt({ children }: { children: React.ReactNode }) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isParam = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 80 || !isParam) {
         setHasScrolled(true);
       } else {
         setHasScrolled(false);
@@ -33,7 +35,7 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -41,10 +43,12 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
         <main>
           <div className="relative  h-screen w-full">
             <div
-              className={`fixed top-0 right-0 left-0 z-10  ${
-                hasScrolled
-                  ? "bg-header md:bg-white  text-white md:text-black  md:shadow-md pb-2"
-                  : " bg-header md:bg-transparent text-white  "
+              className={`fixed top-0 right-0 left-0 z-10 duration-200 transition-all  ${
+                isParam
+                  ? hasScrolled
+                    ? "bg-header md:bg-white shadow-md md:text-[#434343] text-white  "
+                    : "md:bg-transparent bg-header text-white "
+                  : "bg-header md:bg-white shadow-md md:text-[#434343] text-white "
               }`}
             >
               <HeaderComponent setOpen={setOpen} isOpen={open} />
@@ -57,6 +61,7 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
             <div className="h-[50px] fixed bottom-0 right-0 left-0 bg-white shadow-nav md:hidden ">
               <NavbarBottom />
             </div>
+            <FooterComponent />
           </div>
         </main>
       </AntdRegistry>

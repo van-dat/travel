@@ -1,11 +1,12 @@
 "use client";
 
 import { Button } from "antd";
-import Navbar from "../navbar/navbar";
-import { useAppDispatch, useAppSelector } from "@/app/redux/store";
 import { BsList } from "react-icons/bs";
 import { LuUser2 } from "react-icons/lu";
 import ToolsComponent from "@/app/tools/ToolsComponent";
+import { navBar } from "@/utils/navbar";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   setOpen?: any;
@@ -14,13 +15,11 @@ type Props = {
 
 const HeaderComponent = (props: Props) => {
   const { setOpen, isOpen } = props;
-  const { actionNav } = useAppSelector((state: any) => state?.localSlice);
-
-  const useDispatch = useAppDispatch();
+  const router = useRouter();
 
   return (
-    <div className="bg-transparent flex justify-between flex-col max-w-7xl w-full mx-auto  ">
-      <div className="flex h-[50px]  justify-between px-3">
+    <div className="bg-transparent flex justify-between flex-col max-w-7xl w-full mx-auto gap-2 pb-2  ">
+      <div className="flex h-[50px] justify-between px-3 md:border-b ">
         {/* MENU MOBILE */}
         <div
           onClick={() => setOpen(!isOpen)}
@@ -58,11 +57,16 @@ const HeaderComponent = (props: Props) => {
           </div>
         </div>
       </div>
-      <nav className="hidden md:flex flex-col gap-2  ">
-        <div className=" border-t w-full border-nav"></div>
-        <div className=" flex flex-col px-4">
-          <Navbar dispatch={useDispatch} activeNav={actionNav} />
-        </div>
+      <nav className="hidden md:flex gap-4 px-6">
+        {navBar.map((item: any, idx: number) => (
+          <Link
+            href={item.href}
+            className="flex hover:bg-blur cursor-pointer rounded-lg p-2  "
+            key={idx}
+          >
+            {item.label}
+          </Link>
+        ))}
       </nav>
     </div>
   );

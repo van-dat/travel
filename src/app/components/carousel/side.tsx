@@ -31,12 +31,12 @@ const Side = (props: Prop) => {
     }, 3000);
   };
 
-  // useEffect(() => {
-  //   startSlides();
-  //   return () => {
-  //     clearInterval(slideInterval);
-  //   };
-  // }, [numberSlide]);
+  useEffect(() => {
+    startSlides();
+    return () => {
+      clearInterval(slideInterval);
+    };
+  }, [numberSlide]);
 
   const previous = () => {
     setNumberSlide((prev: number) => {
@@ -78,18 +78,18 @@ const Side = (props: Prop) => {
               item.order == 1 ? "active" : ""
             } absolute text-white custom-transition flex gap-[6px] translate-x-2/4 flex-col`}
           >
-            <h3>{item.name}</h3>
+            <h3 className="text-white">{item.name}</h3>
             <Rating rate={item?.rate} />
             <div className="cursor-pointer">
               <img
-                className="object-cover 2xl:w-[250px] 2xl:h-[350px] w-[200px] h-[300px] rounded-[10px] shadow-img "
+                className="object-cover 2xl:w-[250px] 2xl:min-h-[350px] w-[200px] h-[300px] rounded-[10px] shadow-img "
                 src={item?.thumbnail}
                 alt="image"
               />
             </div>
           </div>
         ))}
-        <div className="flex gap-[5px] absolute bottom-0 left-[200px]">
+        <div className="flex gap-[5px] absolute bottom-[-80px] left-[200px]">
           {/* onMouseEnter={stopSlides} onMouseLeave={startSlides}  */}
           <Button
             className="bg-btn border-0 "

@@ -17,8 +17,12 @@ const config: Config = {
         disabled: "rgba(0, 0, 0, 0.25)",
         hover: "#219FE3",
         'text1': "rgba(0, 0, 0, 0.88)",
-        text2: "#687176"
+        text2: "#687176",
+        text3: "#F2F3F3"
 
+      },
+      backgroundImage: {
+        gradient: "linear-gradient(-180deg, rgba(0, 160, 255, 0), #0770cd)"
       },
       backgroundColor: {
         blur: "rgba(0, 0, 0, 0.3)",
@@ -29,23 +33,29 @@ const config: Config = {
         boxImage: "rgba(255, 255, 255, 0.5)",
         header: "#219FE3",
         disabled: "rgba(0, 0, 0, 0.04)",
-        hover: "#F2F3F3"
+        hover: "#F2F3F3",
+        hotel: "rgba(73, 179, 232, 1)"
       },
       borderColor: {
         left: "rgba(255, 255, 255, 0.7) ",
         nav: "rgba(255, 255, 255, 0.2)"
       },
+
       transitionDuration: {
         '250': '250ms',
 
       },
       boxShadow: {
         img: '0px 4px 12px  rgba(0, 0, 0, 0.1)',
-        nav: '0px 0px 8px rgba(0 0 0 , 0.1)'
+        nav: '0px 0px 8px rgba(0 0 0 , 0.1)',
+        form: '0px 4px 10px rgba(3, 18, 26, 0.15)',
       },
       width: {
         header: "calc(100% - 17px)", // Định nghĩa một lớp tiện ích tên là `w-header`
       },
+      objectPosition : {
+        50: " 50% 50%"
+      }
 
 
     },

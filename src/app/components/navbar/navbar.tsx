@@ -19,7 +19,7 @@ const Navbar = (props: Props) => {
                 activeNav === item.key &&
                 "bg-btn-nav md:rounded-full rounded-md border shadow-sm "
               } select-none rounded-md flex justify-center gap-2 py-1 px-2  cursor-pointer md:nav `}
-              key={item.key}
+              key={item.id}
             >
               <div
                 className={`${
