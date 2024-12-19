@@ -10,6 +10,7 @@ import FormCar from "./formCar";
 
 type Props = {
   activeNav: number;
+  label?: boolean;
 };
 
 export interface GuestAndRoom {
@@ -19,7 +20,7 @@ export interface GuestAndRoom {
 }
 
 const Formpage = (props: Props) => {
-  const { activeNav } = props;
+  const { activeNav, label } = props;
 
   const [duration, setDuration] = useState<number>(1);
   const [option, setOption] = useState<any>(
@@ -144,6 +145,7 @@ const Formpage = (props: Props) => {
     >
       {activeNav === keywordForm.HOTEL && (
         <FormHotel
+          label={label}
           dataHotel={dataHotel}
           handleSelectValueHotel={handleSelectValueHotel}
           optionDurationOption={optionDurationOption}
@@ -154,6 +156,7 @@ const Formpage = (props: Props) => {
 
       {activeNav === keywordForm.FLIGHT && (
         <FormFlight
+          label={label}
           guestAndRoome={guestAndRoome}
           dropdownRender={dropdownRender}
           value={dataFlight}
@@ -162,6 +165,7 @@ const Formpage = (props: Props) => {
       )}
       {activeNav === keywordForm.CAR && (
         <FormCar
+          label={label || true}
           guestAndRoome={guestAndRoome}
           dropdownRender={dropdownRender}
           value={dataFlight}
@@ -169,14 +173,14 @@ const Formpage = (props: Props) => {
         />
       )}
 
-      <Form.Item className="flex justify-center items-center -w-ful">
+      {/* <Form.Item className="flex justify-center items-center -w-ful">
         <ButtonComponent
           text="Search"
           types="primary"
           background="#000"
           styleCss={{ minWidth: "200px" }}
         />
-      </Form.Item>
+      </Form.Item> */}
     </Form>
   );
 };

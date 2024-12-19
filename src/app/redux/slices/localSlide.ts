@@ -5,7 +5,7 @@ interface CounterState {
 }
 
 const initialState: CounterState = {
-    actionNav: 3,
+    actionNav: 1,
 }
 
 export const localSlice = createSlice({

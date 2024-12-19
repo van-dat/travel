@@ -19,18 +19,21 @@ type Props = {
   dropdownRender: (value: any) => ReactNode;
   value: any;
   setValue: (value: any, key: string) => void;
+  label?: boolean;
 };
 
 const FormFlight = (props: Props) => {
-  const { guestAndRoome, dropdownRender, value, setValue } = props;
+  const { guestAndRoome, dropdownRender, value, setValue, label } = props;
 
   return (
     <>
+    {label && (
       <Form.Item>
-        <div className="flex gap-2 justify-center items-center md:justify-start  w-full">
-          <BiHotel size={22} /> Find Flight
-        </div>
+          <div className="flex gap-2 justify-center items-center md:justify-start  w-full">
+            <BiHotel size={22} /> Find Flight
+          </div>
       </Form.Item>
+        )}
 
       <CompleteComponent
         suffixIcon={<FlightPlaning />}

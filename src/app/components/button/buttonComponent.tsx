@@ -3,6 +3,7 @@ import { Button } from "antd";
 type IconPosition = "start" | "end";
 type Types = "primary" | "dashed" | "link" | "text";
 type Variants = "outlined" | "dashed" | "solid" | "filled" | "text" | "link";
+type Sizes = "large" | "middle" | "small";
 type Props = {
   icon?: React.ReactNode;
   styleCss?: React.CSSProperties;
@@ -11,7 +12,8 @@ type Props = {
   types?: Types;
   variants?: Variants;
   background?: string;
-  radius?: string;
+  radius?: number;
+  size?: Sizes;
 };
 
 const ButtonComponent = (props: Props) => {
@@ -24,12 +26,11 @@ const ButtonComponent = (props: Props) => {
     variants,
     background,
     radius,
+    size,
   } = props;
 
   const combinedStyle: React.CSSProperties = {
     ...styleCss,
-    paddingTop: 20,
-    paddingBottom: 20,
     borderRadius: radius || 26,
     display: "flex",
     backgroundColor: background || "white",
@@ -42,6 +43,7 @@ const ButtonComponent = (props: Props) => {
       style={combinedStyle}
       iconPosition={iconPosition ? iconPosition : "start"}
       icon={icon}
+      size={size || "middle"}
     >
       {text ? text : null}
     </Button>

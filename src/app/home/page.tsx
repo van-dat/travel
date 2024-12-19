@@ -32,7 +32,7 @@ const HomePage = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="w-full md:h-screen bg-blur  flex items-center justify-center">
+        <div className="w-full flex-col md:h-screen bg-blur  gap-4 flex">
           <CarouselPage
             setNumberSlide={setNumberSlide}
             numberSlide={numberSlide}
@@ -73,8 +73,8 @@ const HomePage = () => {
             </div>
           </div>
           <div className="md:col-span-2 col-span-4  flex justify-center items-center  ">
-            <div className="w-[90%] border bg-white rounded-xl px-4 py-6 ">
-              <Formpage activeNav={actionNav} />
+            <div className="max-w-[90%] border bg-white rounded-xl px-4 py-6 w-full block ">
+              <Formpage label={true} activeNav={actionNav} />
             </div>
           </div>
         </div>
@@ -166,8 +166,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <FooterComponent />
     </div>
   );
 };

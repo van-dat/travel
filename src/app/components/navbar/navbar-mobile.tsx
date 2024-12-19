@@ -8,7 +8,7 @@ type Props = {};
 const NavbarMobile: NextPage<Props> = () => {
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: false,  
     slidesToShow: 5,
     slidesToScroll: 5,
   };
@@ -17,10 +17,7 @@ const NavbarMobile: NextPage<Props> = () => {
     <div>
       <Slider {...settings}>
         {navBarMobile.map((item: any) => (
-          <div
-            className="select-none nav-moblie text-text py-2 "
-            key={item.key}
-          >
+          <div className="select-none nav-moblie text-text py-2 " key={item.id}>
             <Link
               href={item.href}
               className={` rounded-[14px] min-w-[50px] min-h-[50px] border shadow-sm flex justify-center text-xl py-3 mobile-icon sale-icon relative cursor-pointer`}

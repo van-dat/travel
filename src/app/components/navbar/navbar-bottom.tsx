@@ -6,7 +6,8 @@ import { useState } from "react";
 interface Props {}
 
 const NavbarBottom: NextPage<Props> = ({}) => {
-  const [chose, setChose] = useState<number>(0);
+  const [chose, setChose] = useState<number>(1);
+
   return (
     <div className="w-full h-full">
       <ul className="flex justify-around items-center w-full h-full">
