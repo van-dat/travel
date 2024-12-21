@@ -18,12 +18,12 @@ const HeaderComponent = (props: Props) => {
   const router = useRouter();
 
   return (
-    <div className="bg-transparent flex justify-between flex-col max-w-7xl w-full mx-auto gap-2 pb-2  ">
+    <div className="bg-transparent flex justify-between flex-col max-w-7xl w-full mx-auto gap-2 md:pb-2  ">
       <div className="flex h-[50px] justify-between px-3 md:border-b ">
         {/* MENU MOBILE */}
         <div
           onClick={() => setOpen(!isOpen)}
-          className="my-auto flex md:hidden p-2"
+          className=" flex justify-center items-center md:hidden p-2"
         >
           <BsList color="white" size={22} />
         </div>
@@ -35,7 +35,7 @@ const HeaderComponent = (props: Props) => {
         </div>
 
         {/* login */}
-        <div className=" md:hidden flex  items-center px-2">
+        <div className=" md:hidden flex justify-center items-center px-2">
           <LuUser2 size={22} color="white" />
         </div>
         <div className="hidden gap-8 md:flex ">

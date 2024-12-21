@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, Input } from "antd";
 import dayjs from "dayjs";
 import ButtonComponent from "../button/buttonComponent";
@@ -48,6 +48,17 @@ const Formpage = (props: Props) => {
     duration: duration,
   });
 
+  const [dataCar, setDataCar] = useState({
+    from: "",
+    to: "",
+    numberSeat: 1,
+    departureDate: dayjs(new Date()),
+    returnDate: dayjs(new Date()).add(2, "day"),
+  });
+
+
+  console.log(dataCar)
+
   const [guestAndRoome, setGuestAndRoome] = useState<GuestAndRoom>({
     adult: 2,
     kids: 0,
@@ -70,6 +81,12 @@ const Formpage = (props: Props) => {
     }));
   };
 
+  const handleSelectValueCar = (value: any, key: string) => {
+    setDataCar((prev: any) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
   const handleSelectValueFligt = (value: any, key: string) => {
     setDataFlight((prev: any) => ({
       ...prev,
@@ -165,11 +182,9 @@ const Formpage = (props: Props) => {
       )}
       {activeNav === keywordForm.CAR && (
         <FormCar
-          label={label || true}
-          guestAndRoome={guestAndRoome}
-          dropdownRender={dropdownRender}
-          value={dataFlight}
-          setValue={handleSelectValueFligt}
+          label={label}
+          value={dataCar}
+          setValue={handleSelectValueCar}
         />
       )}
 

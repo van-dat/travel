@@ -13,6 +13,7 @@ import { UserSwitchOutlined } from "@ant-design/icons";
 import { typeFlight } from "@/utils/constant";
 import { FlightPlaning, FlightTakeOff, SeatIcon } from "@/utils/icon";
 import DoubleCalendar from "../calendar/doubleCalendar";
+import ButtonComponent from "../button/buttonComponent";
 
 type Props = {
   guestAndRoome: any;
@@ -25,22 +26,23 @@ type Props = {
 const FormFlight = (props: Props) => {
   const { guestAndRoome, dropdownRender, value, setValue, label } = props;
 
+  const handleSearch = () => {};
+
   return (
     <>
-    {label && (
-      <Form.Item>
+      {label && (
+        <Form.Item>
           <div className="flex gap-2 justify-center items-center md:justify-start  w-full">
             <BiHotel size={22} /> Find Flight
           </div>
-      </Form.Item>
-        )}
+        </Form.Item>
+      )}
 
-      <CompleteComponent
-        suffixIcon={<FlightPlaning />}
-        prefixIcon={<FlightTakeOff />}
-      />
-
-      <div className=" flex md:gap-4 flex-col md:flex-row ">
+      <div className="flex gap-2 flex-col md:flex-row">
+        <CompleteComponent
+          suffixIcon={<FlightPlaning />}
+          prefixIcon={<FlightTakeOff />}
+        />
         <Form.Item label="Guests ">
           <SelectComponent
             value={`${guestAndRoome["adult"]} nguời lớn, ${guestAndRoome["kids"]} Trẻ em , ${guestAndRoome["room"]} phòng `}
@@ -49,7 +51,11 @@ const FormFlight = (props: Props) => {
             dropdownRender={dropdownRender}
           />
         </Form.Item>
-        <div className="flex flex-1 ">
+      </div>
+
+      <div className=" flex md:gap-4 flex-col md:flex-row ">
+        <DoubleCalendar setValue={setValue} value={value} />
+        <div className="flex flex-1 min-w-[280px] ">
           <Form.Item label="Chair Style" style={{ width: "100%" }}>
             <SelectComponent
               value={value.typeFlight}
@@ -63,7 +69,18 @@ const FormFlight = (props: Props) => {
           </Form.Item>
         </div>
       </div>
-      <DoubleCalendar setValue={setValue} value={value} />
+      <div className="w-full flex md:justify-end items-center justify-center">
+        <div className="md:max-w-[280px] w-full max-w-full">
+          <ButtonComponent
+            text="Search"
+            handleClick={handleSearch}
+            background="#ff5e1f"
+            radius={6}
+            size="large"
+            styleCss={{ width: "100%", color: "white", fontWeight: 600 }}
+          />
+        </div>
+      </div>
     </>
   );
 };

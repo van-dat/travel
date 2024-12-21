@@ -1,6 +1,5 @@
-import { Checkbox, Form } from "antd";
+import { Checkbox, Form, Switch } from "antd";
 import { NextPage } from "next";
-import { MdOutlineSwapHoriz } from "react-icons/md";
 import CalendarComponent from "./calendarComponent";
 import { useState } from "react";
 
@@ -13,10 +12,14 @@ const DoubleCalendar: NextPage<Props> = (props: Props) => {
   const { setValue, value } = props;
 
   const [checked, setchecked] = useState<boolean>(false);
-  const handleReplace = () => {};
 
   const handleCheckded = () => {
     setchecked(!checked);
+    if (checked)
+      setValue(
+        value.departureDate.add(2, "day"),
+        "returnDate"
+      );
   };
 
   const LableReturnDate = () => {
@@ -35,36 +38,55 @@ const DoubleCalendar: NextPage<Props> = (props: Props) => {
     setchecked(true);
   };
   return (
-    <div className="flex relative w-full">
-      <Form.Item label="Departure Date" style={{ width: "100%" }}>
-        <CalendarComponent
-          css="departure-date"
-          setValue={setValue}
-          value={value.departureDate}
-          fieldKey={"departureDate"}
-          format="D [thg] M YYYY"
-        />
-      </Form.Item>
-      <div className="absolute left-1/2 translate-x-[-50%] z-30 top-1/2 translate-y-[-40%] cursor-pointer select-none">
-        <div
-          onClick={handleReplace}
-          className="w-6 h-6 rounded-full flex items-center justify-center border border-[#d9d9d9]"
-        >
-          <MdOutlineSwapHoriz size={18} color="#0194f3" />
+    <div className="flex  w-full gap-4 flex-col md:flex-row">
+      <div className="w-full relative ">
+        <Form.Item label="Departure Date" style={{ width: "100%" }}>
+          <CalendarComponent
+            css="departure-date"
+            setValue={setValue}
+            value={value.departureDate}
+            fieldKey={"departureDate"}
+            format="D [thg] M YYYY"
+          />
+        </Form.Item>
+        <div className="absolute gap-1 md:right-1/2 right-[21px] flex flex-col md:hidden  translate-x-[48%] md:z-10 md:top-1/2 top-[38%] translate-y-[-42%] cursor-pointer select-none">
+          <span className="text-[10px] text-[#687176]">Khứ hồi?</span>
+          <Switch size="small" onChange={handleCheckded} />
         </div>
       </div>
-      <Form.Item label={<LableReturnDate />} style={{ width: "100%" }}>
-        <CalendarComponent
-          setValue={setValue}
-          value={value.returnDate}
-          fieldKey={"returnDate"}
-          css={`
-            ${!checked && "disabled"} return-date
-          `}
-          format="D [thg] M YYYY"
-          handleForcus={handleForcus}
-        />
-      </Form.Item>
+
+      <div className="w-full hidden md:flex">
+        <Form.Item label={<LableReturnDate />} style={{ width: "100%" }}>
+          {checked && (
+            <CalendarComponent
+              setValue={setValue}
+              value={value.returnDate}
+              fieldKey={"returnDate"}
+              css={`
+                ${!checked && "disabled  "} return-date
+              `}
+              format="D [thg] M YYYY"
+              handleForcus={handleForcus}
+            />
+          )}
+        </Form.Item>
+      </div>
+      {checked && (
+        <div className="w-full flex md:hidden">
+          <Form.Item label={"Return Date"} style={{ width: "100%" }}>
+            <CalendarComponent
+              setValue={setValue}
+              value={value.returnDate}
+              fieldKey={"returnDate"}
+              css={`
+                ${!checked && "disabled  "} return-date
+              `}
+              format="D [thg] M YYYY"
+              handleForcus={handleForcus}
+            />
+          </Form.Item>
+        </div>
+      )}
     </div>
   );
 };

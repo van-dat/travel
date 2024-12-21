@@ -19,10 +19,9 @@ import { IoLocation, IoLocationOutline } from "react-icons/io5";
 import { toastError, toastSuccess } from "@/utils/toast";
 interface Props {}
 
-const HotelPage: NextPage<Props> = ({}) => {
+const BusAndShuttlePage: NextPage<Props> = ({}) => {
   const [indexSlide, setIndexSlide] = useState<number>(1);
   const [indexCoupon, setindexCoupon] = useState<number>(0);
-
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText("TRAVELOKALANNGOC");
@@ -81,36 +80,6 @@ const HotelPage: NextPage<Props> = ({}) => {
     );
   };
 
-  const navSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    // variableWidth: true,
-    nextArrow: <CustomNext />,
-    prevArrow: <CustomPrev />,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          dots: true,
-          slidesToShow: 1,
-          arrows: false,
-        },
-      },
-    ],
-    appendDots: (dots: any) => (
-      <div
-        style={{
-          borderRadius: "10px",
-          padding: "-100px",
-        }}
-      >
-        <ul style={{ margin: "0px", paddingBottom: 25 }}> {dots} </ul>
-      </div>
-    ),
-  };
   const settings = {
     dots: false,
     infinite: false,
@@ -153,7 +122,7 @@ const HotelPage: NextPage<Props> = ({}) => {
 
   return (
     <div className=" md:mt-[98px]">
-      <div className="md:min-h-[320px]  h-full w-full md:bg-hotel overflow-hidden">
+      <div className="md:min-h-[320px] min-h-[165px]  h-full w-full bg-hotel overflow-hidden">
         <div className=" max-w-5xl mx-auto ">
           <div
             style={{
@@ -180,28 +149,22 @@ const HotelPage: NextPage<Props> = ({}) => {
               }`}
             >
               <h3 className="text-2xl text-white">
-                Tìm & đặt phòng khách sạn giá rẻ chỉ với 3 bước đơn giản
+                Đặt vé xe khách giá rẻ và nhiều khuyến mãi trên Traveloka.
               </h3>
 
-              <span className="text-xl">
-                Khám phá ngay những ưu đãi tốt nhất dành cho bạn tại Travel!
+              <span className="text-base">
+                Đặt vé xe khách giờ đây đã trở nên dễ dàng như mua sắm trực
+                tuyến trên đại lý du lịch trực tuyến Traveloka. Tìm kiếm thông
+                tin đầy đủ về các tuyến đường, lịch trình, điểm đón khách, tiện
+                nghi và giá vé tại Siêu ứng dụng và tiện ích sống Traveloka.
               </span>
             </div>
           </div>
 
-          <div className="md:hidden flex flex-col pb-4">
-            <div className="slider-container ">
-              <Slider {...navSettings}>
-                {Array.from({ length: 4 }, (_, idx) => (
-                  <Image
-                    key={idx}
-                    src={saleHotel}
-                    className=" object-50 "
-                    alt={"sale"}
-                  />
-                ))}
-              </Slider>
-            </div>
+          <div className="md:hidden flex flex-col p-4">
+            <h3 className="text-xl text-white font-medium ">
+              Đặt vé xe khách giá rẻ và nhiều khuyến mãi trên Traveloka.
+            </h3>
           </div>
         </div>
         <div className="md:flex hidden justify-center mt-[6px] items-center gap-16 ">
@@ -229,19 +192,16 @@ const HotelPage: NextPage<Props> = ({}) => {
           </div>
         </div>
       </div>
-      <div className="max-w-[960px] mx-auto  md:top-[-42px] top-[-25px]  px-4 md:px-0 relative ">
+      <div className="max-w-[960px] mx-auto  md:top-[-42px] top-[-85px]  px-4 md:px-0 relative ">
         <div className="flex flex-col gap-2 bg-white rounded-lg  shadow-form">
-          <div className="border-b bg-[#F7F9FA] h-[42px] flex gap-2 items-center rounded-t-lg  px-4">
+          <div className=" md:flex border-b bg-[#F7F9FA] h-[42px] hidden gap-2 items-center rounded-t-lg  px-4">
             <CgSearch size={24} className="md:block hidden" />
             <h3 className="text-sm font-semibold md:block hidden ">
-              Tìm kiếm & Đặt phòng Khách sạn online dễ dàng tại Travel
-            </h3>
-            <h3 className="text-sm font-semibold md:hidden block">
-              Đặt phòng khách sạn online dễ dàng
+              Xe buýt & Xe đưa đón
             </h3>
           </div>
           <div className="w-full  p-4">
-            <Formpage activeNav={keywordForm.HOTEL} label={false} />
+            <Formpage activeNav={keywordForm.CAR} label={false} />
           </div>
         </div>
       </div>
@@ -376,4 +336,4 @@ const HotelPage: NextPage<Props> = ({}) => {
   );
 };
 
-export default HotelPage;
+export default BusAndShuttlePage;

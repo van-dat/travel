@@ -1,30 +1,21 @@
 import { Form } from "antd";
-import dayjs from "dayjs";
-import { NextPage } from "next";
 import SelectComponent from "../selection/selectComponent";
 import { BiHotel } from "react-icons/bi";
-import InputComponent from "../input/inputComponent";
-import { CiLocationOn } from "react-icons/ci";
-import CalendarComponent from "../calendar/calendarComponent";
-import { MdOutlineNightlight } from "react-icons/md";
 import { ReactNode, useState } from "react";
 import CompleteComponent from "../selection/completeComponent";
 import { UserSwitchOutlined } from "@ant-design/icons";
-import { typeFlight } from "@/utils/constant";
 import { SeatIcon } from "@/utils/icon";
 import DoubleCalendar from "../calendar/doubleCalendar";
 import { TbBus } from "react-icons/tb";
 
 type Props = {
-  guestAndRoome: any;
-  dropdownRender: (value: any) => ReactNode;
   value: any;
   setValue: (value: any, key: string) => void;
   label?: boolean;
 };
 
 const FormCar = (props: Props) => {
-  const { guestAndRoome, dropdownRender, value, setValue, label } = props;
+  const {  value, setValue, label } = props;
 
   return (
     <>
@@ -34,7 +25,7 @@ const FormCar = (props: Props) => {
             <BiHotel size={22} /> Find Car
           </div>
         </Form.Item>
-      )}s
+      )}
 
       <CompleteComponent
         suffixIcon={<TbBus size={20} />}
@@ -42,26 +33,18 @@ const FormCar = (props: Props) => {
       />
 
       <div className=" flex md:gap-4 flex-col md:flex-row ">
-        <Form.Item label="Guests ">
-          <SelectComponent
-            value={`${guestAndRoome["adult"]} nguời lớn, ${guestAndRoome["kids"]} Trẻ em , ${guestAndRoome["room"]} phòng `}
-            defaultValue={`${guestAndRoome["adult"]} nguời lớn, ${guestAndRoome["kids"]} Trẻ em , ${guestAndRoome["room"]} phòng `}
-            prefixIcon={<UserSwitchOutlined />}
-            dropdownRender={dropdownRender}
-          />
-        </Form.Item>
         <div className="flex flex-1 ">
           <Form.Item label="Seat Number" style={{ width: "100%" }}>
             <SelectComponent
-              value={value.typeFlight}
-              defaultValue={value.typeFlight}
+              value={value.numberSeat}
+              defaultValue={value.numberSeat}
               onChange={setValue}
               prefixIcon={<SeatIcon />}
               options={Array.from({ length: 4 }, (_, idx) => ({
                 lable: idx + 1,
                 value: idx + 1,
               }))}
-              fieldKey="seatNumber"
+              fieldKey="numberSeat"
             />
           </Form.Item>
         </div>
