@@ -31,10 +31,10 @@ const config: Config = {
         container: "rgba(245, 247, 254, 1) !important",
         input: "rgba(245, 247, 254, 1) !important",
         boxImage: "rgba(255, 255, 255, 0.5)",
-        header: "#219FE3",
+        header: "#1BA0E2",
         disabled: "rgba(0, 0, 0, 0.04)",
         hover: "#F2F3F3",
-        hotel: "rgba(73, 179, 232, 1)"
+        hotel: "#1BA0E2"
       },
       borderColor: {
         left: "rgba(255, 255, 255, 0.7) ",

@@ -1,8 +1,7 @@
 import { data } from "@/utils/constant";
-import { AirportPickUp, FlightPlaning, FlightTakeOff } from "@/utils/icon";
 import { AutoComplete, Form } from "antd";
 import { ReactNode, useState } from "react";
-import { MdOutlineSwapHoriz } from "react-icons/md";
+import { FaArrowsRotate } from "react-icons/fa6";
 
 const removeDiacritics = (str: string): string => {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -89,11 +88,13 @@ const CompleteComponent = (props: Props) => {
   };
 
   return (
-    <div className="flex relative w-full">
-      <Form.Item label="Từ" style={{ width: "100%" }}>
+    <div className="flex relative w-full flex-col md:flex-row">
+      <Form.Item label="Từ" style={{ width: "100%", marginBottom: 8 }}>
         <AutoComplete
+          popupClassName="input-popup"
           prefix={prefixIcon}
           className="flight-takeoff"
+          style={{ border: 0, borderRadius: 0 }}
           size="large"
           value={fromInputValue}
           onChange={handleChangeFrom}
@@ -128,18 +129,22 @@ const CompleteComponent = (props: Props) => {
           // }}
         />
       </Form.Item>
-      <div className="absolute left-1/2 translate-x-[-50%] z-30 top-1/2 translate-y-[-40%] cursor-pointer select-none">
+      <div className="absolute md:right-1/2 right-[12px]  translate-x-[48%] md:z-10 md:top-[43%] top-[37%] translate-y-[-16%] cursor-pointer select-none">
         <div
           onClick={handleReplace}
-          className="w-6 h-6 rounded-full flex items-center justify-center border border-[#d9d9d9]"
+          className=" w-8 bg-white h-8 rounded-full flex items-center justify-center border border-[#d9d9d9]"
         >
-          <MdOutlineSwapHoriz size={18} color="#0194f3" />
+          <FaArrowsRotate
+            className="rotate-[90deg]"
+            size={18}
+            color="#0194f3"
+          />
         </div>
       </div>
-      <Form.Item label="Đến" style={{ width: "100%" }}>
+      <Form.Item label="Đến" style={{ width: "100%", marginBottom: 8 }}>
         <AutoComplete
           prefix={suffixIcon}
-          className="flight-planing pl-5"
+          className="flight-planing md:pl-5"
           size="large"
           options={data}
           filterOption={(inputValue, option) => {
@@ -168,6 +173,8 @@ const CompleteComponent = (props: Props) => {
           // }}
         />
       </Form.Item>
+
+      
     </div>
   );
 };

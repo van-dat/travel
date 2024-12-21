@@ -14,6 +14,7 @@ type Props = {
   background?: string;
   radius?: number;
   size?: Sizes;
+  handleClick?: () => void;
 };
 
 const ButtonComponent = (props: Props) => {
@@ -27,6 +28,7 @@ const ButtonComponent = (props: Props) => {
     background,
     radius,
     size,
+    handleClick,
   } = props;
 
   const combinedStyle: React.CSSProperties = {
@@ -38,6 +40,7 @@ const ButtonComponent = (props: Props) => {
 
   return (
     <Button
+      onClick={handleClick}
       variant={variants ? variants : "text"}
       type={types ? types : "default"}
       style={combinedStyle}

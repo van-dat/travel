@@ -38,7 +38,7 @@ const CalendarComponent = (props: Props) => {
       value={dayjs(value)}
       suffixIcon={null}
       placeholder=" "
-      className={`${css} w-full py-2`}
+      className={`${css} w-full `}
       disabled={disabled || false}
       onFocus={handleForcus}
       allowClear={clear || false}

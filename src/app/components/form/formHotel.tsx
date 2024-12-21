@@ -51,7 +51,7 @@ const FormHotel = (props: Props) => {
           />
         </Form.Item>
 
-        <div className="flex flex-wrap md:gap-4 gap-x-4 md:gap-x-0">
+        <div className="flex flex-wrap md:gap-4 gap-x-4">
           {/* Check-in */}
           <div className="flex flex-1 min-w-[210px]">
             <Form.Item

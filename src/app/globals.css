@@ -51,7 +51,7 @@ body {
   }
 
   h3 {
-    font-size: 16px;
+    font-size: clamp(12px, 3vw, 16px);
     margin: 0;
     color: #434343;
   }
@@ -136,6 +136,19 @@ body {
     display: block;
     width: 100%;
   }
+  .return-date,
+  .flight-planing .ant-select-selector,
+  .departure-date,
+  .flight-takeoff .ant-select-selector {
+    border-end-end-radius: 0 !important;
+    border-start-end-radius: 0 !important;
+    border-end-start-radius: 0 !important;
+    border-start-start-radius: 0 !important;
+    border-top: 0px !important;
+    border-right: 0px !important;
+    border-left: 0px !important;
+    padding-left: 0px !important;
+  }
 }
 
 .ant-menu-item-selected {
@@ -173,9 +186,9 @@ body {
 }
 
 /* form */
-.ant-picker-large {
+/* .ant-picker-large {
   padding: 8px 11px 8px !important;
-}
+} */
 
 .form-date {
   display: inline-block;
@@ -245,7 +258,6 @@ nav-moblie
 }
 
 /* autocomplete */
-.departure-date,
 .flight-takeoff .ant-select-selector {
   border-end-end-radius: 0 !important;
   border-start-end-radius: 0 !important;
@@ -253,11 +265,9 @@ nav-moblie
 .flight-takeoff .ant-select-selection-search-input {
   size: 14 !important;
 }
-.return-date,
 .flight-planing .ant-select-selector {
   border-end-start-radius: 0 !important;
   border-start-start-radius: 0 !important;
-  padding-left: 16px !important;
 }
 
 .disabled {
