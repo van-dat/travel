@@ -1,35 +1,99 @@
-import { Form } from "antd";
-import dayjs from "dayjs";
-import { NextPage } from "next";
+import { Button, Form, Input } from "antd";
 import SelectComponent from "../selection/selectComponent";
 import { BiHotel } from "react-icons/bi";
-import InputComponent from "../input/inputComponent";
-import { CiLocationOn } from "react-icons/ci";
-import CalendarComponent from "../calendar/calendarComponent";
-import { MdOutlineNightlight } from "react-icons/md";
-import { ReactNode, useState } from "react";
 import CompleteComponent from "../selection/completeComponent";
 import { UserSwitchOutlined } from "@ant-design/icons";
-import { typeFlight } from "@/utils/constant";
+import { listButton, typeFlight } from "@/utils/constant";
 import { FlightPlaning, FlightTakeOff, SeatIcon } from "@/utils/icon";
 import DoubleCalendar from "../calendar/doubleCalendar";
 import ButtonComponent from "../button/buttonComponent";
+import { FiMinus, FiPlus } from "react-icons/fi";
 
 type Props = {
-  guestAndRoome: any;
-  dropdownRender: (value: any) => ReactNode;
   value: any;
-  setValue: (value: any, key: string) => void;
+  setValue: any;
   label?: boolean;
+  handleClick?: () => void;
 };
+export interface GuestAndRoom {
+  adult: number;
+  kids: number;
+  room: number;
+}
 
 const FormFlight = (props: Props) => {
-  const { guestAndRoome, dropdownRender, value, setValue, label } = props;
+  const { value, setValue, label, handleClick } = props;
+  const [form] = Form.useForm();
+  const handlePlus = (key: keyof GuestAndRoom) => {
+    console.log(key);
+    setValue((prev: any) => ({
+      ...prev,
+      guestAndRoome: {
+        ...prev.guestAndRoome,
+        [key]: prev.guestAndRoome[key] + 1,
+      },
+    }));
+  };
 
-  const handleSearch = () => {};
+  const handleMinus = (key: keyof GuestAndRoom) => {
+    setValue((prev: any) => ({
+      ...prev,
+      guestAndRoome: {
+        ...prev.guestAndRoome,
+        [key]: prev.guestAndRoome[key] - 1,
+      },
+    }));
+  };
+  const dropdownRender = () => {
+    return (
+      <div className="flex gap-4 flex-col bg-white p-2">
+        {listButton.map((item: any) => (
+          <div key={item.key} className=" flex justify-between">
+            <div className="flex gap-2 justify-center items-center ">
+              {item.icon}
+              <h3 className="m-0 text-sm">{item.lable}</h3>
+            </div>
+            <div className=" flex gap-2">
+              <Button
+                onClick={() => handleMinus(item.key)}
+                variant="filled"
+                color="default"
+                icon={<FiMinus />}
+              />
+
+              <Input
+                style={{
+                  display: "inline-block",
+                  maxWidth: "35px",
+                  textAlign: "center",
+                }}
+                size="small"
+                defaultValue={
+                  value.guestAndRoome[item.key as keyof GuestAndRoom]
+                }
+                value={value.guestAndRoome[item.key as keyof GuestAndRoom]}
+              />
+              <Button
+                variant="filled"
+                color="default"
+                icon={<FiPlus />}
+                onClick={() => handlePlus(item.key)}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
 
   return (
-    <>
+    <Form
+      layout={"vertical"}
+      form={form}
+      initialValues={{ layout: "horizontal" }}
+      style={{ color: "#ddd" }}
+    >
       {label && (
         <Form.Item>
           <div className="flex gap-2 justify-center items-center md:justify-start  w-full">
@@ -45,8 +109,8 @@ const FormFlight = (props: Props) => {
         />
         <Form.Item label="Guests ">
           <SelectComponent
-            value={`${guestAndRoome["adult"]} nguời lớn, ${guestAndRoome["kids"]} Trẻ em , ${guestAndRoome["room"]} phòng `}
-            defaultValue={`${guestAndRoome["adult"]} nguời lớn, ${guestAndRoome["kids"]} Trẻ em , ${guestAndRoome["room"]} phòng `}
+            value={`${value.guestAndRoome.adult} nguời lớn, ${value.guestAndRoome.kids} Trẻ em , ${value.guestAndRoome.room} phòng `}
+            defaultValue={`${value.guestAndRoome.adult} nguời lớn, ${value.guestAndRoome.kids} Trẻ em , ${value.guestAndRoome.room} phòng `}
             prefixIcon={<UserSwitchOutlined />}
             dropdownRender={dropdownRender}
           />
@@ -73,7 +137,7 @@ const FormFlight = (props: Props) => {
         <div className="md:max-w-[280px] w-full max-w-full">
           <ButtonComponent
             text="Search"
-            handleClick={handleSearch}
+            handleClick={handleClick}
             background="#ff5e1f"
             radius={6}
             size="large"
@@ -81,7 +145,7 @@ const FormFlight = (props: Props) => {
           />
         </div>
       </div>
-    </>
+    </Form>
   );
 };
 

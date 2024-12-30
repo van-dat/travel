@@ -30,6 +30,7 @@ const DrawerComponent = (props: Props) => {
               className="flex items-center gap-4 py-2 text-text-1 px-6 "
               key={idx}
               href={list.href}
+              onClick={onClose}
             >
               <div className="max-w-6 w-full flex ">{list.icon}</div>
               <div className="text-text2 text-base flex justify-between w-full">

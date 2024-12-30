@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import dayjs from "dayjs";
-import ButtonComponent from "../button/buttonComponent";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { keywordForm, listButton } from "@/utils/constant";
 import FormHotel from "./formHotel";
@@ -11,6 +10,7 @@ import FormCar from "./formCar";
 type Props = {
   activeNav: number;
   label?: boolean;
+  handleClick?: () => void;
 };
 
 export interface GuestAndRoom {
@@ -46,6 +46,11 @@ const Formpage = (props: Props) => {
       .add(duration, "day")
       .format("dddd, D [thg] M YYYY"),
     duration: duration,
+    guestAndRoome: {
+      adult: 2,
+      kids: 0,
+      room: 1,
+    },
   });
 
   const [dataCar, setDataCar] = useState({
@@ -55,9 +60,6 @@ const Formpage = (props: Props) => {
     departureDate: dayjs(new Date()),
     returnDate: dayjs(new Date()).add(2, "day"),
   });
-
-
-  console.log(dataCar)
 
   const [guestAndRoome, setGuestAndRoome] = useState<GuestAndRoom>({
     adult: 2,

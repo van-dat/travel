@@ -21,7 +21,6 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isParam = pathname === "/";
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 80 || !isParam) {
@@ -44,7 +43,7 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
         <main>
           <div className="relative  h-screen w-full">
             <div
-              className={`fixed top-0 right-0 left-0 z-30 duration-200 transition-all  ${
+              className={`fixed top-0 right-0 left-0 z-50 duration-200 transition-all  ${
                 isParam
                   ? hasScrolled
                     ? "bg-header md:bg-white shadow-md md:text-[#434343] text-white  "
@@ -64,7 +63,7 @@ export function ProviderAndt({ children }: { children: React.ReactNode }) {
             <div className="h-[50px] fixed bottom-0 right-0 left-0 bg-white shadow-nav md:hidden ">
               <NavbarBottom />
             </div>
-            <FooterComponent />
+            {/* <FooterComponent /> */}
           </div>
         </main>
       </AntdRegistry>

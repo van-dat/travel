@@ -21,6 +21,10 @@
   /* :root {  --layout-grid-3: 1fr 1fr 1fr ;} */
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -109,6 +113,15 @@ body {
 .hidden-scroll::-webkit-scrollbar {
   display: none;
 }
+.custome-scroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.custome-scroll::-webkit-scrollbar-thumb {
+  background: #c6c7c8;
+  border-radius: 10px;
+}
 
 .container-grid {
   grid-auto-rows: auto;
@@ -128,6 +141,7 @@ body {
     grid-template-columns: var(--layout-4);
   }
 }
+
 @media (max-width: 768px) {
   .container-grid {
     grid-template-columns: var(--layout-grid-2);
@@ -178,6 +192,12 @@ body {
   background-color: #bae7ff !important;
   color: #096dd9 !important;
   font-weight: bold;
+}
+.ant-form-item {
+  margin-bottom: 12px !important;
+}
+.calendar-hotel .ant-form-item {
+  margin-bottom: 0%px !important;
 }
 
 .border-ensign {
@@ -332,4 +352,56 @@ nav-moblie
   width: 24px;
   height: 24px;
   border-width: 12px;
+}
+.show-item {
+  max-height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.hidden-item {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.search-fligth-item:hover {
+  width: max-content;
+}
+
+.label-search {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+.search-fligth-item:hover .label-search {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.ant-timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.ant-timeline-item {
+  display: flex;
+  flex-direction: column; /* Nội dung dọc */
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+ant-timeline-item-tail {
+  display: none; /* Ẩn các đường dọc mặc định */
+}
+.ant-timeline-item-head {
+  margin-bottom: 8px; /* Khoảng cách giữa dấu tròn và nội dung */
+}
+.ant-timeline-item-content {
+  margin-top: 0; /* Xóa khoảng cách mặc định */
 }

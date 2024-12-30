@@ -1,4 +1,4 @@
-import { Form } from "antd";
+import { Button, Form, Input } from "antd";
 import dayjs from "dayjs";
 import SelectComponent from "../selection/selectComponent";
 import { BiHotel } from "react-icons/bi";
@@ -9,31 +9,118 @@ import { MdOutlineNightlight } from "react-icons/md";
 import { ReactNode, useState } from "react";
 import { UserSwitchOutlined } from "@ant-design/icons";
 import ButtonComponent from "../button/buttonComponent";
+import { listButton } from "@/utils/constant";
+import { FiMinus, FiPlus } from "react-icons/fi";
 
 type Props = {
-  dataHotel: any;
-  handleSelectValueHotel: (value: any, key: string) => void;
-  optionDurationOption: (menu: any) => ReactNode;
-  guestAndRoome: any;
-  dropdownRender: (menu: any) => ReactNode;
+  value: any;
+  setValue: any;
   label?: boolean;
+  handleClick?: () => void;
 };
+export interface GuestAndRoom {
+  adult: number;
+  kids: number;
+  room: number;
+}
 
 const FormHotel = (props: Props) => {
-  const {
-    dataHotel,
-    handleSelectValueHotel,
-    guestAndRoome,
-    optionDurationOption,
-    dropdownRender,
-    label,
-  } = props;
+  const { value, setValue, label, handleClick } = props;
+  const [form] = Form.useForm();
+
   const [option, setOption] = useState<any>(
     Array.from({ length: 50 }, (_, index) => ({ value: index + 1 }))
   );
 
+  const handlePlus = (key: keyof GuestAndRoom) => {
+    console.log(key);
+    setValue((prev: any) => ({
+      ...prev,
+      guestAndRoome: {
+        ...prev.guestAndRoome,
+        [key]: prev.guestAndRoome[key] + 1,
+      },
+    }));
+  };
+
+  const handleMinus = (key: keyof GuestAndRoom) => {
+    setValue((prev: any) => ({
+      ...prev,
+      guestAndRoome: {
+        ...prev.guestAndRoome,
+        [key]: prev.guestAndRoome[key] - 1,
+      },
+    }));
+  };
+  const handleSelectValueHotel = (value: any, key: string) => {
+    setValue((prev: any) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const dropdownRender = () => {
+    return (
+      <div className="flex gap-4 flex-col bg-white p-2">
+        {listButton.map((item: any) => (
+          <div key={item.key} className=" flex justify-between">
+            <div className="flex gap-2 justify-center items-center ">
+              {item.icon}
+              <h3 className="m-0 text-sm">{item.lable}</h3>
+            </div>
+            <div className=" flex gap-2">
+              <Button
+                onClick={() => handleMinus(item.key)}
+                variant="filled"
+                color="default"
+                icon={<FiMinus />}
+              />
+
+              <Input
+                style={{
+                  display: "inline-block",
+                  maxWidth: "35px",
+                  textAlign: "center",
+                }}
+                size="small"
+                defaultValue={
+                  value.guestAndRoome[item.key as keyof GuestAndRoom]
+                }
+                value={value.guestAndRoome[item.key as keyof GuestAndRoom]}
+              />
+              <Button
+                variant="filled"
+                color="default"
+                icon={<FiPlus />}
+                onClick={() => handlePlus(item.key)}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const optionDurationOption = (menu: any) => {
+    return (
+      <div className="flex flex-col ">
+        <h3 className="m-0 text-sm font-semibold ">{`${menu.data.value} đêm`}</h3>
+        <span className="text-xs capitalize">
+          {dayjs(value.dateCheckIn)
+            .add(+(menu?.data?.value || 1), "day")
+            .format("dddd, D [thg] M YYYY")}
+        </span>
+      </div>
+    );
+  };
+
   return (
-    <>
+    <Form
+      layout={"vertical"}
+      form={form}
+      initialValues={{ layout: "horizontal" }}
+      style={{ color: "#ddd" }}
+    >
       <div className=" flex flex-wrap w-full   ">
         {label && (
           <Form.Item>
@@ -51,9 +138,9 @@ const FormHotel = (props: Props) => {
           />
         </Form.Item>
 
-        <div className="flex flex-wrap md:gap-4 gap-x-4">
+        <div className="flex flex-wrap gap-x-4">
           {/* Check-in */}
-          <div className="flex flex-1 min-w-[210px]">
+          <div className="flex flex-col flex-1 min-w-[300px] calendar-hotel">
             <Form.Item
               label="Check-in "
               style={{ width: "100%" }}
@@ -61,35 +148,28 @@ const FormHotel = (props: Props) => {
             >
               <CalendarComponent
                 setValue={handleSelectValueHotel}
-                value={dataHotel.dateCheckIn}
+                value={value.dateCheckIn}
                 fieldKey="dateCheckIn"
                 css="min-w-[210px]"
               />
             </Form.Item>
-          </div>
-
-          {/* Guests and Rooms */}
-          <div className=" md:flex hidden min-w-[280px] flex-1">
-            <Form.Item style={{ width: "100%" }} label="Guests and Rooms">
-              <SelectComponent
-                value={`${guestAndRoome.adult} người lớn, ${guestAndRoome.kids} Trẻ em, ${guestAndRoome.room} phòng`}
-                defaultValue={`${guestAndRoome.adult} người lớn, ${guestAndRoome.kids} Trẻ em, ${guestAndRoome.room} phòng`}
-                prefixIcon={<UserSwitchOutlined />}
-                dropdownRender={dropdownRender}
-                fieldKey=""
-              />
-            </Form.Item>
+            <div className="capitalize gap-1 flex md:hidden pl-3 ">
+              <span>Check out:</span>
+              {dayjs(value.dateCheckIn)
+                .add(value.duration, "day")
+                .format("dddd, D [thg] M YYYY")}
+            </div>
           </div>
 
           {/* Duration */}
-          <div className="flex flex-1 min-w-[200px]">
+          <div className="flex flex-1 min-w-[300px]">
             <Form.Item
               label="Duration"
               style={{ width: "100%" }}
               rules={[{ required: true }]}
             >
               <SelectComponent
-                value={`${dataHotel.duration} đêm`}
+                value={`${value.duration} đêm`}
                 prefixIcon={<MdOutlineNightlight className="rotate-[45deg]" />}
                 optionRender={optionDurationOption}
                 options={option}
@@ -100,11 +180,11 @@ const FormHotel = (props: Props) => {
           </div>
 
           {/* Check-Out */}
-          <div className="hidden md:flex flex-1 min-w-[150px]">
+          <div className="md:flex hidden flex-1 ">
             <Form.Item label="Check-Out">
               <div className="capitalize">
-                {dayjs(dataHotel.dateCheckIn)
-                  .add(dataHotel.duration, "day")
+                {dayjs(value.dateCheckIn)
+                  .add(value.duration, "day")
                   .format("dddd, D [thg] M YYYY")}
               </div>
             </Form.Item>
@@ -114,8 +194,8 @@ const FormHotel = (props: Props) => {
           <div className="flex md:hidden w-full">
             <Form.Item label="Guests and Rooms" style={{ width: "100%" }}>
               <SelectComponent
-                value={`${guestAndRoome.adult} người lớn, ${guestAndRoome.kids} Trẻ em, ${guestAndRoome.room} phòng`}
-                defaultValue={`${guestAndRoome.adult} người lớn, ${guestAndRoome.kids} Trẻ em, ${guestAndRoome.room} phòng`}
+                value={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
+                defaultValue={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
                 prefixIcon={<UserSwitchOutlined />}
                 dropdownRender={dropdownRender}
                 fieldKey=""
@@ -123,38 +203,33 @@ const FormHotel = (props: Props) => {
             </Form.Item>
           </div>
 
-          {/* Mobile Check-Out and Search */}
-          <div className="flex  items-center justify-center gap-4 w-full">
-            <div className="md:hidden flex-1">
-              <Form.Item label="Check-Out" style={{ width: "100%" }}>
-                <div className="capitalize">
-                  {dayjs(dataHotel.dateCheckIn)
-                    .add(dataHotel.duration, "day")
-                    .format("dddd, D [thg] M YYYY")}
-                </div>
-              </Form.Item>
-            </div>
-            <div className="flex justify-center items-center">
-              <Form.Item>
-                <ButtonComponent
-                  size="large"
-                  text="Search"
-                  types="primary"
-                  radius={8}
-                  background="#000"
-                  styleCss={{
-                    minWidth: "150px",
-                    height: 38,
-                    paddingTop: 0,
-                    paddingBottom: 0,
-                  }}
+          {/* Mobile duration and Search */}
+          <div className="flex items-center justify-between gap-8  w-full">
+            <div className="md:block hidden w-full ">
+              <Form.Item style={{ width: "100%" }} label="Guests and Rooms">
+                <SelectComponent
+                  value={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
+                  defaultValue={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
+                  prefixIcon={<UserSwitchOutlined />}
+                  dropdownRender={dropdownRender}
+                  fieldKey=""
                 />
               </Form.Item>
+            </div>
+            <div className="md:max-w-[280px] w-full max-w-full md:mt-[15px]">
+              <ButtonComponent
+                text="Search"
+                handleClick={handleClick}
+                background="#ff5e1f"
+                radius={6}
+                size="large"
+                styleCss={{ width: "100%", color: "white", fontWeight: 600 }}
+              />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </Form>
   );
 };
 

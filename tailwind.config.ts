@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -18,7 +19,12 @@ const config: Config = {
         hover: "#219FE3",
         'text1': "rgba(0, 0, 0, 0.88)",
         text2: "#687176",
-        text3: "#F2F3F3"
+        text3: "#F2F3F3",
+        text4: "#434343",
+        text5: "#0194F3",
+        text6: "#cdd0d1",
+        text7: "#707577",
+        text8: "#ff5e1f"
 
       },
       backgroundImage: {
@@ -34,7 +40,14 @@ const config: Config = {
         header: "#1BA0E2",
         disabled: "rgba(0, 0, 0, 0.04)",
         hover: "#F2F3F3",
-        hotel: "#1BA0E2"
+        hotel: "#1BA0E2",
+        bg1: "#0194F3",
+        bg2: "#f7f9fa",
+        bg3: "#235D9F",
+        bg4: "#0565C8",
+        bg5: "#fff3",
+        bg6: "#0264c8",
+        bg7: "#ECF8FF"
       },
       borderColor: {
         left: "rgba(255, 255, 255, 0.7) ",
@@ -51,11 +64,12 @@ const config: Config = {
         form: '0px 4px 10px rgba(3, 18, 26, 0.15)',
       },
       width: {
-        header: "calc(100% - 17px)", // Định nghĩa một lớp tiện ích tên là `w-header`
+        header: "calc(100% - 17px)",
       },
-      objectPosition : {
+      objectPosition: {
         50: " 50% 50%"
       }
+
 
 
     },

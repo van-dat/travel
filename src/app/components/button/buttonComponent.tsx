@@ -14,7 +14,7 @@ type Props = {
   background?: string;
   radius?: number;
   size?: Sizes;
-  handleClick?: () => void;
+  handleClick?: (value?: any) => void;
 };
 
 const ButtonComponent = (props: Props) => {

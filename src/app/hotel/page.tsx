@@ -17,11 +17,26 @@ import Hotel from "@/image/hotel.webp";
 import Rating from "../components/Rating";
 import { IoLocation, IoLocationOutline } from "react-icons/io5";
 import { toastError, toastSuccess } from "@/utils/toast";
+import dayjs from "dayjs";
+import FormHotel from "../components/form/formHotel";
 interface Props {}
 
 const HotelPage: NextPage<Props> = ({}) => {
   const [indexSlide, setIndexSlide] = useState<number>(1);
   const [indexCoupon, setindexCoupon] = useState<number>(0);
+  const [dataHotel, setDataHotel] = useState({
+    address: "",
+    dateCheckIn: dayjs(new Date()),
+    dateCheckout: dayjs(new Date())
+      .add(1, "day")
+      .format("dddd, D [thg] M YYYY"),
+    duration: 1,
+    guestAndRoome: {
+      adult: 2,
+      kids: 0,
+      room: 1,
+    },
+  });
 
   const handleCopy = async () => {
     try {
@@ -241,7 +256,7 @@ const HotelPage: NextPage<Props> = ({}) => {
             </h3>
           </div>
           <div className="w-full  p-4">
-            <Formpage activeNav={keywordForm.HOTEL} label={false} />
+            <FormHotel value={dataHotel} setValue={setDataHotel} />
           </div>
         </div>
       </div>

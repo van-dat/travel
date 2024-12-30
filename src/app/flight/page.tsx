@@ -4,8 +4,6 @@ import saleHotel from "@/image/saleHotel.webp";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
-import Formpage from "../components/form/formpage";
-import { keywordForm } from "@/utils/constant";
 import { CgSearch } from "react-icons/cg";
 import { RiInformation2Fill } from "react-icons/ri";
 import { MdOutlineFlight } from "react-icons/md";
@@ -15,13 +13,17 @@ import EventHotel from "@/image/eventHotel.webp";
 import Slider from "react-slick";
 import Hotel from "@/image/hotel.webp";
 import Rating from "../components/Rating";
-import { IoLocation, IoLocationOutline } from "react-icons/io5";
+import { IoLocation } from "react-icons/io5";
 import { toastError, toastSuccess } from "@/utils/toast";
+import dayjs from "dayjs";
+import FormFlight from "../components/form/formFlight";
+import { useRouter } from "next/navigation";
 interface Props {}
 
 const FlightPage: NextPage<Props> = ({}) => {
   const [indexSlide, setIndexSlide] = useState<number>(1);
   const [indexCoupon, setindexCoupon] = useState<number>(0);
+  const router = useRouter();
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText("TRAVELOKALANNGOC");
@@ -70,16 +72,6 @@ const FlightPage: NextPage<Props> = ({}) => {
     );
   };
 
-  const SliderNav = () => {
-    return (
-      <div className="w-full">
-        {Array.from({ length: 4 }, (_, idx) => (
-          <Image key={idx} src={saleHotel} className="object-50" alt="sale" />
-        ))}
-      </div>
-    );
-  };
-
   const settings = {
     dots: false,
     infinite: false,
@@ -118,6 +110,38 @@ const FlightPage: NextPage<Props> = ({}) => {
         },
       },
     ],
+  };
+
+  const [dataFlight, setDataFlight] = useState({
+    from: "",
+    to: "",
+    people: {
+      adut: 1,
+      kids: 0,
+    },
+    typeFlight: "Phổ thông",
+    departureDate: dayjs(new Date()),
+    returnDate: dayjs(new Date()).add(2, "day"),
+    guestAndRoome: {
+      adult: 2,
+      kids: 0,
+      room: 1,
+    },
+  });
+
+  const handleClick = () => {
+    const query = {
+      ap: `${dataFlight.to}.${dataFlight.from}`,
+      dt: `${dataFlight.departureDate}.${
+        dataFlight.returnDate == dataFlight.departureDate && "NA"
+      }`,
+      ps: `${dataFlight.guestAndRoome.adult}.${dataFlight.guestAndRoome.kids}.${dataFlight.guestAndRoome.room}`,
+      sc: `${dataFlight.guestAndRoome.room}`,
+    };
+
+    router.push(
+      `/flight/fullsearch?ap=${query.ap}&dt=${query.dt}&ps=${query.ps}&sc=${query.sc}`
+    );
   };
 
   return (
@@ -202,7 +226,11 @@ const FlightPage: NextPage<Props> = ({}) => {
             </h3>
           </div>
           <div className="w-full  p-4">
-            <Formpage activeNav={keywordForm.FLIGHT} label={false} />
+            <FormFlight
+              handleClick={handleClick}
+              value={dataFlight}
+              setValue={setDataFlight}
+            />
           </div>
         </div>
       </div>
