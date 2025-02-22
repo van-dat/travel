@@ -84,9 +84,9 @@ const FormHotel = (props: Props) => {
                 }}
                 size="small"
                 defaultValue={
-                  value.guestAndRoome[item.key as keyof GuestAndRoom]
+                  value?.guestAndRoome[item.key as keyof GuestAndRoom]
                 }
-                value={value.guestAndRoome[item.key as keyof GuestAndRoom]}
+                value={value?.guestAndRoome[item.key as keyof GuestAndRoom]}
               />
               <Button
                 variant="filled"
@@ -104,9 +104,9 @@ const FormHotel = (props: Props) => {
   const optionDurationOption = (menu: any) => {
     return (
       <div className="flex flex-col ">
-        <h3 className="m-0 text-sm font-semibold ">{`${menu.data.value} đêm`}</h3>
+        <h3 className="m-0 text-sm font-semibold ">{`${menu?.data?.value} đêm`}</h3>
         <span className="text-xs capitalize">
-          {dayjs(value.dateCheckIn)
+          {dayjs(value?.dateCheckIn)
             .add(+(menu?.data?.value || 1), "day")
             .format("dddd, D [thg] M YYYY")}
         </span>
@@ -148,15 +148,15 @@ const FormHotel = (props: Props) => {
             >
               <CalendarComponent
                 setValue={handleSelectValueHotel}
-                value={value.dateCheckIn}
+                value={value?.dateCheckIn}
                 fieldKey="dateCheckIn"
                 css="min-w-[210px]"
               />
             </Form.Item>
             <div className="capitalize gap-1 flex md:hidden pl-3 ">
               <span>Check out:</span>
-              {dayjs(value.dateCheckIn)
-                .add(value.duration, "day")
+              {dayjs(value?.dateCheckIn)
+                .add(value?.duration, "day")
                 .format("dddd, D [thg] M YYYY")}
             </div>
           </div>
@@ -169,7 +169,7 @@ const FormHotel = (props: Props) => {
               rules={[{ required: true }]}
             >
               <SelectComponent
-                value={`${value.duration} đêm`}
+                value={`${value?.duration} đêm`}
                 prefixIcon={<MdOutlineNightlight className="rotate-[45deg]" />}
                 optionRender={optionDurationOption}
                 options={option}
@@ -183,8 +183,8 @@ const FormHotel = (props: Props) => {
           <div className="md:flex hidden flex-1 ">
             <Form.Item label="Check-Out">
               <div className="capitalize">
-                {dayjs(value.dateCheckIn)
-                  .add(value.duration, "day")
+                {dayjs(value?.dateCheckIn)
+                  .add(value?.duration, "day")
                   .format("dddd, D [thg] M YYYY")}
               </div>
             </Form.Item>
@@ -194,8 +194,8 @@ const FormHotel = (props: Props) => {
           <div className="flex md:hidden w-full">
             <Form.Item label="Guests and Rooms" style={{ width: "100%" }}>
               <SelectComponent
-                value={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
-                defaultValue={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
+                value={`${value?.guestAndRoome?.adult} người lớn, ${value?.guestAndRoome?.kids} Trẻ em, ${value?.guestAndRoome?.room} phòng`}
+                defaultValue={`${value?.guestAndRoome?.adult} người lớn, ${value?.guestAndRoome?.kids} Trẻ em, ${value?.guestAndRoome?.room} phòng`}
                 prefixIcon={<UserSwitchOutlined />}
                 dropdownRender={dropdownRender}
                 fieldKey=""
@@ -208,8 +208,8 @@ const FormHotel = (props: Props) => {
             <div className="md:block hidden w-full ">
               <Form.Item style={{ width: "100%" }} label="Guests and Rooms">
                 <SelectComponent
-                  value={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
-                  defaultValue={`${value.guestAndRoome?.adult} người lớn, ${value.guestAndRoome?.kids} Trẻ em, ${value.guestAndRoome?.room} phòng`}
+                  value={`${value?.guestAndRoome?.adult} người lớn, ${value?.guestAndRoome?.kids} Trẻ em, ${value?.guestAndRoome?.room} phòng`}
+                  defaultValue={`${value?.guestAndRoome?.adult} người lớn, ${value?.guestAndRoome?.kids} Trẻ em, ${value?.guestAndRoome?.room} phòng`}
                   prefixIcon={<UserSwitchOutlined />}
                   dropdownRender={dropdownRender}
                   fieldKey=""

@@ -74,7 +74,7 @@ const HomePage = () => {
           </div>
           <div className="md:col-span-2 col-span-4  flex justify-center items-center  ">
             <div className="max-w-[90%] border bg-white rounded-xl px-4 py-6 w-full block ">
-              <Formpage label={true} activeNav={actionNav} />
+              {/* <Formpage label={true} activeNav={actionNav} /> */}
             </div>
           </div>
         </div>
